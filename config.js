@@ -5,8 +5,8 @@ const CONFIG = {
   // Personal Info
   profile: {
     name: "G T Prashanth",
-    headline: "AI Developer | Full Stack Developer | Machine Learning Enthusiast | Information Science Engineering Student",
-    aboutMe: "I am a passionate Information Science Engineering student interested in Artificial Intelligence, Machine Learning, Full Stack Development, IoT, and solving real-world problems through technology. I actively participate in hackathons, build innovative applications, and continuously improve my technical skills.",
+    headline: "AI Developer | Full Stack Developer | Machine Learning Enthusiast | Information Science and Technology Student",
+    aboutMe: "I am a passionate Information Science and Technology student interested in Artificial Intelligence, Machine Learning, Full Stack Development, IoT, and solving real-world problems through technology. I actively participate in hackathons, build innovative applications, and continuously improve my technical skills.",
     location: "Bengaluru, India",
     email: "gtprashanth2@gmail.com",
     phone: "+91 63660 62095", // User configured phone number
@@ -35,7 +35,7 @@ const CONFIG = {
   // Education Details
   education: [
     {
-      degree: "B.Tech in Information Science Engineering",
+      degree: "B.Tech in Information Science and Technology",
       institution: "Presidency University, Bangalore",
       period: "2024 - 2028 (Current)",
       details: "Sustaining a strong academic record with a CGPA of 8.9 / 10. Focusing on Web Development, Machine Learning, OOPs, DBMS, and Data Structures. Actively building dynamic applications and participating in university events."
