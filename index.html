@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G T Prashanth | AI & Full Stack Developer Portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of G T Prashanth, AI Developer, Full Stack Developer, and Machine Learning Enthusiast. Showcase of projects, skills, education, and GitHub statistics.">
+    <meta name="keywords" content="G T Prashanth, AI Developer, Machine Learning, Full Stack Developer, CSE Presidency University, Portfolio, GeoMiner AI, AgriGeo AI">
+    <meta name="author" content="G T Prashanth">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6.4.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Fullscreen Loading Overlay -->
+    <div id="loader-screen">
+        <div class="loader-content">
+            <div class="loader-ring">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="loader-logo">GTP</div>
+            <p class="loader-text">Initializing Dashboard...</p>
+        </div>
+    </div>
+
+    <!-- Custom Cursor Overlay -->
+    <div id="custom-cursor"></div>
+    <div id="custom-cursor-glow"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Background Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-navbar">
+        <div class="container">
+            <a class="navbar-brand text-gradient font-outfit" href="#home" id="brand-logo">GTP<span>.</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#home" id="nav-home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" id="nav-about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills" id="nav-skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience" id="nav-experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects" id="nav-projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#github-dashboard" id="nav-github">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications" id="nav-certifications">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements" id="nav-achievements">Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" id="nav-contact">Contact</a></li>
+                    
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN SECTIONS -->
+    <main>
+
+        <!-- 1. Home Section -->
+        <section id="home" class="hero-section d-flex align-items-center position-relative overflow-hidden">
+            <!-- Floating Decorative Gradients -->
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+            <div class="container position-relative z-2">
+                <div class="row align-items-center min-vh-100 py-5">
+                    <div class="col-lg-7 text-center text-lg-start">
+                        <div class="badge-custom mb-3 animate-fade-in">Welcome to my space</div>
+                        <h1 class="hero-title font-outfit text-white mb-2">
+                            Hi, I am <span class="text-gradient d-block d-sm-inline" id="hero-name">G T Prashanth</span>
+                        </h1>
+                        <h2 class="hero-subtitle mb-4">
+                            I build with <span id="typing-text" class="text-secondary-gradient"></span><span class="typing-cursor">|</span>
+                        </h2>
+                        <p class="hero-description text-muted mb-5 max-w-600">
+                            A computer science engineering student specializing in Artificial Intelligence, Machine Learning pipelines, and modern Full Stack Web architectures. Bridging spatial analytics, IoT networks, and smart code structures.
+                        </p>
+                        <div class="hero-buttons d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
+                            <a href="#contact" class="btn-premium" id="btn-hire">
+                                <span class="btn-text">Get In Touch</span>
+                                <i class="fa-solid fa-arrow-right ms-2 btn-icon"></i>
+                            </a>
+                            <a href="resume.pdf" target="_blank" class="btn-outline-premium" id="btn-resume-download">
+                                <span class="btn-text">Download Resume</span>
+                                <i class="fa-solid fa-file-arrow-down ms-2 btn-icon"></i>
+                            </a>
+                        </div>
+                        
+                        <!-- Floating Tech Quick Links -->
+                        <div class="mt-5 pt-3 d-flex align-items-center justify-content-center justify-content-lg-start gap-4 flex-wrap text-muted">
+                            <span class="small font-outfit text-uppercase tracking-wider">Top Tech:</span>
+                            <div class="tech-icons-row d-flex gap-3">
+                                <i class="fa-brands fa-python fa-xl text-glow-hover" title="Python"></i>
+                                <i class="fa-brands fa-java fa-xl text-glow-hover" title="Java"></i>
+                                <i class="fa-brands fa-react fa-xl text-glow-hover" title="React"></i>
+                                <i class="fa-solid fa-brain fa-xl text-glow-hover" title="Machine Learning"></i>
+                                <i class="fa-solid fa-microchip fa-xl text-glow-hover" title="Arduino / IoT"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center mt-5 mt-lg-0 position-relative animate-float">
+                        <div class="hero-graphic-container">
+                            <div class="hero-card-glow"></div>
+                            <div class="hero-graphic-box glass-card">
+                                <div class="terminal-header">
+                                    <span class="terminal-dot dot-red"></span>
+                                    <span class="terminal-dot dot-yellow"></span>
+                                    <span class="terminal-dot dot-green"></span>
+                                    <span class="terminal-title font-outfit">gtp_agent.sh</span>
+                                </div>
+                                <div class="terminal-body font-monospace text-start">
+                                    <p class="text-blue">~/developer $ <span class="text-white">cat profile.json</span></p>
+                                    <p class="text-muted">{</p>
+                                    <p class="text-purple ps-3">"name": <span class="text-green">"G T Prashanth"</span>,</p>
+                                    <p class="text-purple ps-3">"role": <span class="text-green">"AI & Full Stack Developer"</span>,</p>
+                                    <p class="text-purple ps-3">"focus": <span class="text-green">["Machine Learning", "Spatial GIS", "IoT"]</span>,</p>
+                                    <p class="text-purple ps-3">"status": <span class="text-green">"Building the future"</span>,</p>
+                                    <p class="text-purple ps-3">"location": <span class="text-green">"Bengaluru, India"</span></p>
+                                    <p class="text-muted">}</p>
+                                    <p class="text-blue">~/developer $ <span class="text-white">npm run start</span></p>
+                                    <p class="text-green animate-pulse"><i class="fa-solid fa-circle-check"></i> System ready. Let's code.</p>
+                                </div>
+                            </div>
+                            <!-- Floating decorative cards -->
+                            <div class="floating-badge glass-card b-1 animate-float-reverse">
+                                <i class="fa-solid fa-bolt text-yellow"></i>
+                                <span>IoT Automation</span>
+                            </div>
+                            <div class="floating-badge glass-card b-2 animate-float">
+                                <i class="fa-solid fa-network-wired text-purple"></i>
+                                <span>Deep Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom wave separator -->
+            <div class="wave-container">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1130.57,99.76,1061.26,100.45,985.66,92.83Z" class="wave-path"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- 2. About & Education Section -->
+        <section id="about" class="section-padding position-relative">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title font-outfit text-white">About & Education</h2>
+                    <p class="section-subtitle text-muted">My background, vision, and academic foundation</p>
+                    <div class="header-line"></div>
+                </div>
+                
+                <div class="row g-4 mt-2">
+                    <!-- Left: About Card -->
+                    <div class="col-lg-6">
+                        <div class="glass-card p-4 p-md-5 h-100 position-relative overflow-hidden">
+                            <div class="glow-spot"></div>
+                            <h3 class="card-section-title text-gradient font-outfit mb-4">Who I Am</h3>
+                            <p class="about-text text-muted mb-4 lead" id="about-bio">
+                                <!-- Loaded dynamically from config.js -->
+                            </p>
+                            
+                            <div class="personal-details-grid d-flex flex-column gap-3 mt-4">
+                                <div class="detail-item d-flex align-items-center gap-3">
+                                    <div class="detail-icon-box bg-purple-translucent"><i class="fa-solid fa-user-graduate text-purple"></i></div>
+                                    <div>
+                                        <span class="text-muted d-block small">Current Degree</span>
+                                        <strong class="text-white">B.Tech in Computer Science Engineering</strong>
+                                    </div>
+                                </div>
+                                <div class="detail-item d-flex align-items-center gap-3">
+                                    <div class="detail-icon-box bg-blue-translucent"><i class="fa-solid fa-map-pin text-blue"></i></div>
+                                    <div>
+                                        <span class="text-muted d-block small">Location</span>
+                                        <strong class="text-white" id="about-location">Bengaluru, India</strong>
+                                    </div>
+                                </div>
+                                <div class="detail-item d-flex align-items-center gap-3">
+                                    <div class="detail-icon-box bg-yellow-translucent"><i class="fa-solid fa-envelope text-yellow"></i></div>
+                                    <div>
+                                        <span class="text-muted d-block small">Email Correspondence</span>
+                                        <strong class="text-white"><a href="mailto:gtprashanth2@gmail.com" class="text-white text-decoration-none" id="about-email">gtprashanth2@gmail.com</a></strong>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Animated statistics counter grid -->
+                            <div class="row g-3 mt-4 pt-3 border-top border-secondary-translucent">
+                                <div class="col-4 text-center">
+                                    <div class="counter-box">
+                                        <h4 class="counter-number text-white font-outfit mb-0" id="count-repos">0</h4>
+                                        <span class="text-muted small">GitHub Repos</span>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <div class="counter-box">
+                                        <h4 class="counter-number text-white font-outfit mb-0" id="count-skills">27</h4>
+                                        <span class="text-muted small">Tech Skills</span>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <div class="counter-box">
+                                        <h4 class="counter-number text-white font-outfit mb-0" id="count-visitors">0</h4>
+                                        <span class="text-muted small">Profile Views</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Education Cards -->
+                    <div class="col-lg-6">
+                        <div class="glass-card p-4 p-md-5 h-100">
+                            <h3 class="card-section-title text-gradient font-outfit mb-4">Academic Timeline</h3>
+                            <div class="education-timeline-box" id="education-container">
+                                <!-- Loaded dynamically from config.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Skills Section -->
+        <section id="skills" class="section-padding bg-dark-translucent">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title font-outfit text-white">Skills & Toolkit</h2>
+                    <p class="section-subtitle text-muted">A look at the frameworks, languages, and tools I use</p>
+                    <div class="header-line"></div>
+                </div>
+
+                <!-- Skill Categories & Progress Bars -->
+                <div class="row g-4" id="skills-container">
+                    <!-- Dynamically populated from config.js -->
+                </div>
+                
+                <!-- Skills Graph & Coding Profiles -->
+                <div class="row g-4 mt-5">
+                    <div class="col-lg-6">
+                        <div class="glass-card p-4 h-100">
+                            <h4 class="font-outfit text-white mb-3">Skills Radar representation</h4>
+                            <div class="skills-graph-card d-flex align-items-center justify-content-center p-3 text-center min-h-250">
+                                <div class="w-100">
+                                    <div class="skills-tag-cloud d-flex flex-wrap justify-content-center gap-2">
+                                        <!-- Will populate dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="glass-card p-4 h-100">
+                            <h4 class="font-outfit text-white mb-3">Coding Profiles</h4>
+                            <p class="text-muted small mb-4">Competitive coding, repository hosting, and problem solving dashboards.</p>
+                            <div class="row g-3" id="coding-profiles-container">
+                                <!-- Loaded dynamically from config.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Experience & Hackathons Section -->
+        <section id="experience" class="section-padding">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title font-outfit text-white">Academic Experience & Hackathons</h2>
+                    <p class="section-subtitle text-muted">A timeline of my active development and collaborative sprints</p>
+                    <div class="header-line"></div>
+                </div>
+
+                <!-- Interactive Animated Timeline -->
+                <div class="timeline-wrapper">
+                    <div class="timeline-center-line"></div>
+                    <div id="experience-timeline" class="d-flex flex-column gap-5">
+                        <!-- Loaded dynamically from config.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Projects Section -->
+        <section id="projects" class="section-padding bg-dark-translucent">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title font-outfit text-white">My Projects</h2>
+                    <p class="section-subtitle text-muted">Dynamically pulled from my GitHub profile and local highlights</p>
+                    <div class="header-line"></div>
+                </div>
+
+                <!-- Filter Controls & Search Bar -->
+                <div class="glass-card p-4 mb-5 search-filter-panel">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-md-4">
+                            <div class="search-box position-relative">
+                                <i class="fa-solid fa-magnifying-glass search-icon text-muted"></i>
+                                <input type="text" id="project-search" class="form-control text-white border-secondary-translucent bg-dark-translucent" placeholder="Search by name, tech or language...">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="filter-wrapper d-flex flex-wrap gap-2 justify-content-md-end" id="tech-filters">
+                                <button class="btn btn-sm btn-filter active" data-filter="all">All Projects</button>
+                                <button class="btn btn-sm btn-filter" data-filter="featured">Featured Only</button>
+                                <button class="btn btn-sm btn-filter" data-filter="Python">Python</button>
+                                <button class="btn btn-sm btn-filter" data-filter="JavaScript">JavaScript</button>
+                                <button class="btn btn-sm btn-filter" data-filter="HTML">HTML / CSS</button>
+                                <button class="btn btn-sm btn-filter" data-filter="Java">Java</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Projects Grid -->
+                <div class="row g-4" id="projects-grid">
+                    <!-- Loading placeholder project cards -->
+                    <div class="col-12 text-center py-5 project-spinner">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-3 text-muted">Retrieving public repositories from GitHub API...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GitHub Dashboard Section -->
+        <section id="github-dashboard" class="section-padding">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title font-outfit text-white">GitHub Analytics</h2>
+                    <p class="section-subtitle text-muted">Live metrics, contribution patterns, and code stream indicators</p>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Left: GitHub Profile Stats Cards -->
+                    <div class="col-lg-4">
+                        <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex align-items-center gap-3 mb-4">
+                                    <img src="" alt="Avatar" id="github-avatar" class="rounded-circle border border-2 border-primary" width="70" height="70">
+                                    <div>
+                                        <h4 class="font-outfit text-white mb-0" id="github-username">gt1432</h4>
+                                        <a href="https://github.com/gt1432" target="_blank" class="text-gradient small text-decoration-none">@gt1432 on GitHub <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></a>
+                                    </div>
+                                </div>
+                                <div class="stats-counter-list d-flex flex-column gap-3">
+                                    <div class="stat-badge d-flex justify-content-between align-items-center p-3 glass-card bg-dark-translucent">
+                                        <span class="text-muted"><i class="fa-solid fa-folder-open me-2 text-blue"></i>Total Repositories</span>
+                                        <strong class="text-white font-outfit fs-5" id="github-repos-count">5</strong>
+                                    </div>
+                                    <div class="stat-badge d-flex justify-content-between align-items-center p-3 glass-card bg-dark-translucent">
+                                        <span class="text-muted"><i class="fa-solid fa-users me-2 text-purple"></i>Followers</span>
+                                        <strong class="text-white font-outfit fs-5" id="github-followers">0</strong>
+                                    </div>
+                                    <div class="stat-badge d-flex justify-content-between align-items-center p-3 glass-card bg-dark-translucent">
+                                        <span class="text-muted"><i class="fa-solid fa-user-plus me-2 text-yellow"></i>Following</span>
+                                        <strong class="text-white font-outfit fs-5" id="github-following">0</strong>
+                                    </div>
+                                    <div class="stat-badge d-flex justify-content-between align-items-center p-3 glass-card bg-dark-translucent">
+                                        <span class="text-muted"><i class="fa-solid fa-star me-2 text-glow"></i>Total Starred</span>
+                                        <strong class="text-white font-outfit fs-5" id="github-stars">0</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Dynamic Languages breakdown pie/horizontal bars -->
+                            <div class="mt-4 pt-3 border-top border-secondary-translucent">
+                                <h5 class="font-outfit text-white mb-3">Top Languages distribution</h5>
+                                <div class="languages-distribution-bar progress d-flex bg-dark-translucent overflow-hidden" id="github-languages-bar" style="height: 12px;">
+                                    <!-- Dynamic bar blocks -->
+                                </div>
+                                <div class="d-flex flex-wrap gap-3 mt-3 justify-content-between small text-muted" id="github-languages-legend">
+                                    <!-- Dynamic legends -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Center/Right: Stats Cards and Streak graphics -->
+                    <div class="col-lg-8">
+                        <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+                            <h4 class="font-outfit text-white mb-4">Code Activity Overview</h4>
+                            
+                            <div class="row g-3 text-center mb-4">
+                                <!-- SVG Graph placeholders -->
+                                <div class="col-md-6">
+                                    <div class="stats-iframe-card glass-card p-2 bg-dark-translucent">
+                                        <!-- Real github-readme-stats embedded dynamically or themed placeholder -->
+                                        <img src="https://github-readme-stats.vercel.app/api?username=gt1432&show_icons=true&theme=dark&bg_color=0D0D1E&title_color=4F46E5&icon_color=C084FC&text_color=9CA3AF&border_color=1F2937" alt="GitHub Stats" class="img-fluid w-100 rounded-3">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="stats-iframe-card glass-card p-2 bg-dark-translucent">
+                                        <img src="https://github-readme-streak-stats.herokuapp.com/?user=gt1432&theme=dark&background=0D0D1E&ring=4F46E5&fire=C084FC&currStreakNum=C084FC&sideNums=9CA3AF&sideLabels=9CA3AF&dates=9CA3AF&hide_border=true" alt="GitHub Streak" class="img-fluid w-100 rounded-3">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live Activity Feed / Commit Stream -->
+                            <div class="recent-commit-feed glass-card p-4 bg-dark-translucent">
+                                <h5 class="font-outfit text-white mb-3"><i class="fa-solid fa-clock-rotate-left me-2 text-gradient"></i>Recent GitHub Commit Feed</h5>
+                                <div class="commits-list d-flex flex-column gap-3 overflow-y-auto max-h-200" id="commits-feed-container">
+                                    <!-- Dynamically loaded commits -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Certifications Section -->
+        <section id="certifications" class="section-padding bg-dark-translucent">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title font-outfit text-white">Certifications</h2>
+                    <p class="section-subtitle text-muted">Professional certifications and academic milestones attained</p>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="row g-4" id="certifications-container">
+                    <!-- Dynamically populated from config.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Achievements Section -->
+        <section id="achievements" class="section-padding">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title font-outfit text-white">Achievements & Honors</h2>
+                    <p class="section-subtitle text-muted">Timeline highlighting key accomplishments and successes</p>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="row g-4 mt-2" id="achievements-container">
+                    <!-- Loaded dynamically from config.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Testimonials & Blogs Section -->
+        <section id="blog-testimonials" class="section-padding bg-dark-translucent">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Testimonials column -->
+                    <div class="col-lg-6">
+                        <h3 class="font-outfit text-white mb-4"><i class="fa-solid fa-quote-left me-2 text-purple"></i>Testimonials</h3>
+                        <div id="testimonials-carousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner" id="testimonials-container">
+                                <!-- Loaded dynamically from config.js -->
+                            </div>
+                            <div class="d-flex gap-2 mt-4">
+                                <button class="btn btn-outline-secondary btn-sm rounded-circle" type="button" data-bs-target="#testimonials-carousel" data-bs-slide="prev">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm rounded-circle" type="button" data-bs-target="#testimonials-carousel" data-bs-slide="next">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blogs column -->
+                    <div class="col-lg-6">
+                        <h3 class="font-outfit text-white mb-4"><i class="fa-solid fa-newspaper me-2 text-blue"></i>Latest Blogs & Thoughts</h3>
+                        <div class="d-flex flex-column gap-3" id="blogs-container">
+                            <!-- Loaded dynamically from config.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. FAQ Section -->
+        <section id="faq" class="section-padding">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title font-outfit text-white">Frequently Asked Questions</h2>
+                    <p class="section-subtitle text-muted">A collection of common inquiries about my work and tech stack</p>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="row justify-content-center mt-4">
+                    <div class="col-lg-8">
+                        <div class="accordion accordion-flush glass-card p-3 p-md-4" id="faqAccordion">
+                            <!-- Loaded dynamically from config.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. Contact Section -->
+        <section id="contact" class="section-padding bg-dark-translucent position-relative">
+            <div class="glow-orb orb-3"></div>
+            <div class="container position-relative z-2">
+                <div class="text-center mb-5">
+                    <h2 class="section-title font-outfit text-white">Contact Me</h2>
+                    <p class="section-subtitle text-muted">Let's build something amazing together!</p>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="row g-4 mt-2">
+                    <!-- Left: Contact Details Cards -->
+                    <div class="col-lg-5">
+                        <div class="d-flex flex-column gap-3 h-100">
+                            <!-- Email Card -->
+                            <div class="glass-card p-4 d-flex align-items-start gap-4">
+                                <div class="detail-icon-box bg-purple-translucent"><i class="fa-solid fa-envelope text-purple fs-4"></i></div>
+                                <div>
+                                    <h5 class="text-white font-outfit mb-1">Email Address</h5>
+                                    <p class="text-muted mb-0 small">Send an email directly:</p>
+                                    <a href="mailto:gtprashanth2@gmail.com" class="text-white text-decoration-none font-outfit fs-6" id="contact-email">gtprashanth2@gmail.com</a>
+                                </div>
+                            </div>
+                            <!-- Phone Card -->
+                            <div class="glass-card p-4 d-flex align-items-start gap-4">
+                                <div class="detail-icon-box bg-blue-translucent"><i class="fa-solid fa-phone text-blue fs-4"></i></div>
+                                <div>
+                                    <h5 class="text-white font-outfit mb-1">Phone / Mobile</h5>
+                                    <p class="text-muted mb-0 small">Get in touch via cell:</p>
+                                    <a href="tel:+919876543210" class="text-white text-decoration-none font-outfit fs-6" id="contact-phone">+91 98765 43210</a>
+                                </div>
+                            </div>
+                            <!-- Location Card -->
+                            <div class="glass-card p-4 d-flex align-items-start gap-4">
+                                <div class="detail-icon-box bg-yellow-translucent"><i class="fa-solid fa-map-location-dot text-yellow fs-4"></i></div>
+                                <div>
+                                    <h5 class="text-white font-outfit mb-1">Location</h5>
+                                    <p class="text-muted mb-0 small">Base of operations:</p>
+                                    <p class="text-white font-outfit fs-6 mb-0" id="contact-location">Bengaluru, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: EmailJS Form -->
+                    <div class="col-lg-7">
+                        <div class="glass-card p-4 p-md-5">
+                            <h4 class="font-outfit text-white mb-4">Send Message</h4>
+                            
+                            <!-- Success / Error Status Alerts -->
+                            <div class="alert alert-success d-none mb-4" role="alert" id="form-alert-success">
+                                <i class="fa-solid fa-circle-check me-2"></i> Message sent successfully! I will get back to you soon.
+                            </div>
+                            <div class="alert alert-danger d-none mb-4" role="alert" id="form-alert-error">
+                                <i class="fa-solid fa-circle-exclamation me-2"></i> Failed to send the message. Please check connection or try email.
+                            </div>
+                            
+                            <form id="contact-form" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="user_name" class="form-label text-muted small">Your Name</label>
+                                        <input type="text" name="user_name" id="user_name" class="form-control text-white bg-dark-translucent border-secondary-translucent p-3" placeholder="John Doe" required>
+                                        <div class="invalid-feedback">Please enter your name.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="user_email" class="form-label text-muted small">Your Email</label>
+                                        <input type="email" name="user_email" id="user_email" class="form-control text-white bg-dark-translucent border-secondary-translucent p-3" placeholder="john@example.com" required>
+                                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="msg_subject" class="form-label text-muted small">Subject</label>
+                                        <input type="text" name="msg_subject" id="msg_subject" class="form-control text-white bg-dark-translucent border-secondary-translucent p-3" placeholder="Collaboration / Job Opportunity" required>
+                                        <div class="invalid-feedback">Please enter a subject.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label text-muted small">Message</label>
+                                        <textarea name="message" id="message" rows="5" class="form-control text-white bg-dark-translucent border-secondary-translucent p-3" placeholder="Write details here..." required></textarea>
+                                        <div class="invalid-feedback">Please enter your message content.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn-premium w-100" id="btn-submit-form">
+                                            <span class="btn-text">Send Message</span>
+                                            <i class="fa-solid fa-paper-plane ms-2 btn-icon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 12. Footer -->
+    <footer class="footer-section position-relative overflow-hidden py-5 border-top border-secondary-translucent">
+        <div class="container text-center">
+            <h2 class="font-outfit text-gradient mb-3" style="font-size: 2.5rem; font-weight: 800;">GTP<span>.</span></h2>
+            <p class="text-muted max-w-500 mx-auto mb-4 small">
+                Design and development portfolio of G T Prashanth. Built dynamically utilizing GitHub REST APIs and designed with glassmorphism CSS layout models.
+            </p>
+            
+            <!-- Quick Links -->
+            <div class="footer-links-row d-flex justify-content-center gap-4 flex-wrap mb-4 font-outfit small">
+                <a href="#home" class="text-muted text-glow-hover text-decoration-none">Home</a>
+                <a href="#about" class="text-muted text-glow-hover text-decoration-none">About</a>
+                <a href="#skills" class="text-muted text-glow-hover text-decoration-none">Skills</a>
+                <a href="#projects" class="text-muted text-glow-hover text-decoration-none">Projects</a>
+                <a href="#contact" class="text-muted text-glow-hover text-decoration-none">Contact</a>
+            </div>
+
+            <!-- Social handles rows -->
+            <div class="d-flex justify-content-center gap-3 mb-4" id="footer-socials">
+                <!-- Loaded dynamically -->
+            </div>
+
+            <p class="text-muted small mb-0 mt-3">
+                &copy; <span id="current-year">2026</span> G T Prashanth. All Rights Reserved. Built with <i class="fa-solid fa-heart text-danger"></i>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="btn-back-to-top" class="glass-card" aria-label="Scroll back to top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- Project Detail Modal -->
+    <div class="modal fade" id="projectDetailModal" tabindex="-1" aria-labelledby="projectDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-card p-4 p-md-5 overflow-hidden">
+                <div class="modal-header border-0 pb-0 position-relative">
+                    <h3 class="modal-title font-outfit text-white" id="modal-project-title">Project Title</h3>
+                    <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body pt-4">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="modal-image-wrapper rounded-3 overflow-hidden border border-secondary-translucent">
+                                <img src="" alt="Project Image" id="modal-project-image" class="w-100 img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex flex-wrap gap-2 mb-3" id="modal-project-tech">
+                                <!-- Dynamic tags -->
+                            </div>
+                            <p class="text-muted font-outfit mb-4" id="modal-project-desc">
+                                Long description of the project goes here.
+                            </p>
+                            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 border-top border-secondary-translucent pt-3">
+                                <div class="d-flex gap-4 text-muted small" id="modal-project-stats">
+                                    <span><i class="fa-solid fa-star text-glow me-1"></i><span id="modal-stars-count">0</span> Stars</span>
+                                    <span><i class="fa-solid fa-clock me-1"></i>Updated <span id="modal-updated-date">June 2026</span></span>
+                                </div>
+                                <div class="d-flex gap-3">
+                                    <a href="#" target="_blank" class="btn-outline-premium btn-sm py-2 px-3" id="modal-btn-repo">
+                                        <i class="fa-brands fa-github me-1"></i> Repository
+                                    </a>
+                                    <a href="#" target="_blank" class="btn-premium btn-sm py-2 px-3" id="modal-btn-demo">
+                                        <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Live Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 Bundle JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Config File -->
+    <script src="config.js"></script>
+    
+    <!-- Core App logic -->
+    <script src="app.js"></script>
+</body>
+</html>

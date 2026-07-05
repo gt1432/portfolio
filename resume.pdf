@@ -1,0 +1,60 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 195 >>
+stream
+BT
+/F1 28 Tf
+70 750 Td
+(G T PRASHANTH) Tj
+0 -40 Td
+/F1 16 Tf
+(AI & Full Stack Developer) Tj
+0 -30 Td
+/F1 12 Tf
+(Email: gtprashanth2@gmail.com | Location: Bengaluru, India) Tj
+0 -40 Td
+/F1 14 Tf
+(Education:) Tj
+0 -20 Td
+/F1 11 Tf
+(- Presidency University: B.Tech in CSE [Current]) Tj
+0 -20 Td
+(- Sri Chaitanya PU College [Completed]) Tj
+0 -40 Td
+/F1 14 Tf
+(Top Projects:) Tj
+0 -20 Td
+/F1 11 Tf
+(- GeoMiner AI - Geospatial ML Mineral Predictor) Tj
+0 -20 Td
+(- AgriGeo AI - Precision Agriculture Platform) Tj
+0 -20 Td
+(- Smart Greenhouse - IoT Automation Solution) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000056 00000 n 
+0000000111 00000 n 
+0000000244 00000 n 
+0000000488 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+579
+%%EOF
