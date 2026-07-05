@@ -3,7 +3,7 @@
 A highly responsive, premium, and interactive personal portfolio website designed for software engineering internships, hackathons, and professional networking. This website displays education, skills, projects, certifications, accomplishments, and custom analytics dynamically loaded from the GitHub API.
 
 ## 🚀 Live Demo
-- **GitHub Pages hosted site**: [https://gt1432.github.io/port](https://gt1432.github.io/port) (Placeholder - swap with your actual username and repository name)
+- **GitHub Pages hosted site**: [https://gt1432.github.io/portfolio](https://gt1432.github.io/portfolio) (Placeholder - swap with your actual username and repository name)
 
 ---
 
@@ -49,7 +49,7 @@ A highly responsive, premium, and interactive personal portfolio website designe
 ## 📂 Folder Structure
 
 ```text
-port/
+portfolio/
 │
 ├── index.html        # Main HTML layout skeleton and section divisions
 ├── style.css         # Custom stylesheet (Variables, animations, responsiveness, glassmorphic elements)
