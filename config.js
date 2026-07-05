@@ -283,18 +283,6 @@ const CONFIG = {
   // Fallback Custom Projects (displayed if the user wants to show off-GitHub projects like Arduino hardware systems)
   customProjects: [
     {
-      title: "Smart Greenhouse Energy System",
-      description: "An IoT hardware and software solution that automates greenhouse operations. Collects real-time light, soil moisture, and humidity values via sensory grids, running automation routines dynamically on Arduino.",
-      technologies: ["Arduino", "IoT", "C++", "Sensors", "Hardware Design", "Flask Dashboard"],
-      image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80", // Plant environment tech
-      repoUrl: "https://github.com/gt1432",
-      demoUrl: "#",
-      stars: 4,
-      language: "C++",
-      updatedAt: "2025-11-20",
-      featured: true
-    },
-    {
       title: "Machine Learning Core Projects",
       description: "A comprehensive laboratory repository housing custom implementations of Convolutional Neural Networks (CNNs), Random Forests, SVMs, and OpenCV computer vision face tracking templates.",
       technologies: ["Python", "TensorFlow", "Scikit-learn", "OpenCV", "Pandas", "NumPy"],
