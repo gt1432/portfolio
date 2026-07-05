@@ -149,15 +149,42 @@
   .two-col li b { color: var(--dark); }
   .two-col li i { color: var(--mid); }
 
+  /* ── PRINT BUTTON ────────────────────────────────────── */
+  .print-btn {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    background: #1D4ED8;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(29,78,216,0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 999;
+    transition: background 0.2s;
+  }
+  .print-btn:hover { background: #1e40af; }
+
   /* ── PRINT ──────────────────────────────────────────── */
   @media print {
     body { background: white; }
     .page { width: 100%; margin: 0; }
+    .print-btn { display: none !important; }
     @page { margin: 0; size: A4; }
   }
 </style>
 </head>
 <body>
+<button class="print-btn" onclick="window.print()">
+  &#10515;&nbsp; Download / Print as PDF
+</button>
 <div class="page">
 
   <!-- HEADER -->
