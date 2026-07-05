@@ -106,13 +106,7 @@ const CONFIG = {
       description: "Developed responsive web applications with interactive frontends and backend services. EduBridge bridges the learning gap for students, while FocusLearn provides a structured space for visual and focus-oriented course modules.",
       icon: "fa-solid fa-laptop-code"
     },
-    {
-      title: "IoT & Smart Greenhouses",
-      subtitle: "Hardware-Software Integration Projects",
-      period: "2025",
-      description: "Built the Smart Greenhouse Energy System using Arduino and sensory arrays. Leveraged microcontrollers to dynamically control temperature, humidity, and lighting, transmitting real-time monitoring stats to a centralized dashboard.",
-      icon: "fa-solid fa-microchip"
-    },
+
     {
       title: "Hackathons & Team Collaboration",
       subtitle: "Presidency University & Inter-college Events",
@@ -205,8 +199,8 @@ const CONFIG = {
   // Testimonials (Placeholders)
   testimonials: [
     {
-      quote: "Prashanth's ability to combine Machine Learning with hardware like Arduino on our Smart Greenhouse project was incredible. He is a highly capable and motivated engineer.",
-      author: "Academic Project partner, CSE",
+      quote: "Prashanth has an incredible ability to translate complex ML concepts into practical web applications. His work on GeoMiner AI and AgriGeo was exceptional and well beyond what was expected.",
+      author: "Academic Project Partner, ISE",
       role: "Presidency University"
     },
     {
