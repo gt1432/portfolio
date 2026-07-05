@@ -1109,3 +1109,88 @@ body.mouse-active #custom-cursor, body.mouse-active #custom-cursor-glow {
         right: 20px;
     }
 }
+
+/* ==========================================================================
+   Light Theme Casing & Specificity Overrides (Legibility Fixes)
+   ========================================================================== */
+
+/* 1. Prevent Bootstrap .text-white from overriding CSS text gradients */
+.text-gradient, .text-secondary-gradient, .counter-number {
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+}
+
+/* 2. Re-color all white text elements to dark slate in light mode */
+[data-theme="light"] .text-white {
+    color: var(--text-primary) !important;
+}
+[data-theme="light"] .text-white-50 {
+    color: var(--text-secondary) !important;
+}
+[data-theme="light"] .section-title {
+    color: var(--text-primary) !important;
+}
+[data-theme="light"] .about-text {
+    color: var(--text-secondary) !important;
+}
+[data-theme="light"] .about-bio {
+    color: var(--text-secondary) !important;
+}
+[data-theme="light"] .hero-description {
+    color: var(--text-secondary) !important;
+}
+
+/* 3. Re-style inputs for premium light glass aesthetics */
+[data-theme="light"] .form-control {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+    color: var(--text-primary) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme="light"] .form-control::placeholder {
+    color: var(--text-muted) !important;
+}
+[data-theme="light"] .form-control:focus {
+    background-color: #ffffff !important;
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.1) !important;
+}
+
+/* 4. Keep terminal graphic card dark for visual contrast */
+.hero-graphic-box {
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: #0d0c1d !important;
+}
+.hero-graphic-box .terminal-header {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+.hero-graphic-box .terminal-body {
+    color: #94a3b8 !important;
+}
+.hero-graphic-box .text-white {
+    color: #ffffff !important;
+}
+
+/* 5. Subtly shade alternating sections in light mode */
+.bg-dark-translucent {
+    background-color: rgba(255, 255, 255, 0.015) !important;
+    transition: var(--transition-smooth);
+}
+[data-theme="light"] .bg-dark-translucent {
+    background-color: rgba(0, 0, 0, 0.015) !important;
+}
+
+/* 6. Fix close icons and toggle icons color in light mode */
+[data-theme="light"] .btn-close-custom {
+    color: var(--text-secondary) !important;
+}
+[data-theme="light"] .btn-close-custom:hover {
+    color: var(--text-primary) !important;
+}
+[data-theme="light"] .accordion-button::after {
+    filter: invert(0.8) !important;
+}
+[data-theme="light"] .navbar-toggler-icon {
+    filter: invert(0.8) !important;
+}
