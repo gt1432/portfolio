@@ -180,11 +180,36 @@
     @page { margin: 0; size: A4; }
   }
 </style>
+<!-- html2pdf library for one-click PDF download -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
-<button class="print-btn" onclick="window.print()">
-  &#10515;&nbsp; Download / Print as PDF
+<button class="print-btn" id="downloadBtn" onclick="downloadPDF()">
+  &#10515;&nbsp; <span id="btnText">Download PDF</span>
 </button>
+
+<script>
+function downloadPDF() {
+  const btn = document.getElementById('downloadBtn');
+  const btnText = document.getElementById('btnText');
+  btn.disabled = true;
+  btnText.textContent = 'Generating...';
+
+  const element = document.querySelector('.page');
+  const opt = {
+    margin:       0,
+    filename:     'G_T_Prashanth_Resume.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true, logging: false },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+
+  html2pdf().set(opt).from(element).save().then(() => {
+    btn.disabled = false;
+    btnText.textContent = 'Download PDF';
+  });
+}
+</script>
 <div class="page">
 
   <!-- HEADER -->
