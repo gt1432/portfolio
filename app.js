@@ -45,6 +45,18 @@ function initProfileData() {
     // Bind Resume URL
     document.getElementById('btn-resume-download').href = prof.resumeUrl;
     
+    // Bind Tech Skills counter dynamically
+    let totalSkills = 0;
+    if (CONFIG.skills) {
+        CONFIG.skills.forEach(cat => {
+            if (cat.items) totalSkills += cat.items.length;
+        });
+    }
+    const countSkillsEl = document.getElementById('count-skills');
+    if (countSkillsEl) {
+        countSkillsEl.innerText = totalSkills;
+    }
+    
     // Bind Social Media lists
     const footerSocials = document.getElementById('footer-socials');
     footerSocials.innerHTML = '';
@@ -657,7 +669,7 @@ async function fetchGitHubData() {
     } catch (err) {
         console.error('GitHub API error:', err);
         // Fallback to static custom project load if offline or rate-limited
-        loadedProjectsList = CONFIG.customProjects;
+        loadedProjectsList = [...CONFIG.customProjects];
         
         // Push overrides as mock projects if API fails
         Object.keys(CONFIG.projectOverrides).forEach(key => {
