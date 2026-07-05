@@ -5,12 +5,12 @@ const CONFIG = {
   // Personal Info
   profile: {
     name: "G T Prashanth",
-    headline: "AI Developer | Full Stack Developer | Machine Learning Enthusiast | Computer Science Engineering Student",
-    aboutMe: "I am a passionate Computer Science Engineering student interested in Artificial Intelligence, Machine Learning, Full Stack Development, IoT, and solving real-world problems through technology. I actively participate in hackathons, build innovative applications, and continuously improve my technical skills.",
+    headline: "AI Developer | Full Stack Developer | Machine Learning Enthusiast | Information Science Engineering Student",
+    aboutMe: "I am a passionate Information Science Engineering student interested in Artificial Intelligence, Machine Learning, Full Stack Development, IoT, and solving real-world problems through technology. I actively participate in hackathons, build innovative applications, and continuously improve my technical skills.",
     location: "Bengaluru, India",
     email: "gtprashanth2@gmail.com",
     phone: "+91 63660 62095", // User configured phone number
-    linkedin: "https://www.linkedin.com/in/gt-prashanth/", // Placeholder - easily editable
+    linkedin: "https://www.linkedin.com/in/gt-prashanth/",
     github: "https://github.com/gt1432",
     githubUsername: "gt1432",
     resumeUrl: "resume.pdf",
@@ -35,22 +35,22 @@ const CONFIG = {
   // Education Details
   education: [
     {
-      degree: "B.Tech in Computer Science Engineering",
-      institution: "Presidency University",
-      period: "Current",
-      details: "Focusing on Artificial Intelligence, Machine Learning, Data Structures, and Software Development. Actively building projects and participating in university hackathons."
+      degree: "B.Tech in Information Science Engineering",
+      institution: "Presidency University, Bangalore",
+      period: "2024 - 2028 (Current)",
+      details: "Sustaining a strong academic record with a CGPA of 8.9 / 10. Focusing on Web Development, Machine Learning, OOPs, DBMS, and Data Structures. Actively building dynamic applications and participating in university events."
     },
     {
-      degree: "Class 11 & 12 (Pre-University College)",
-      institution: "Sri Chaitanya PU College",
-      period: "Completed",
-      details: "Specialized in PCMC (Physics, Chemistry, Mathematics, Computer Science) with a strong foundation in science and mathematics."
+      degree: "Pre-University College (Class 12 / PUC) - CBSE",
+      institution: "Sri Chaitanya PU College, Bangalore",
+      period: "Completed 2024 (75%)",
+      details: "Specialized in PCMC (Physics, Chemistry, Mathematics, Computer Science) with a strong foundation in science and engineering fundamentals."
     },
     {
-      degree: "Class 10 (Secondary School Education)",
-      institution: "Gnana Jyoti School",
-      period: "Completed",
-      details: "Completed secondary education with excellent academic records and actively participated in science fairs."
+      degree: "Secondary School Education (Class 10) - ICSE",
+      institution: "Gnana Jyoti School, Mulbagal",
+      period: "Completed 2022 (82%)",
+      details: "Acquired deep interest in science and programming foundations, graduating with a score of 82%."
     }
   ],
 
