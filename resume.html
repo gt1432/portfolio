@@ -12,10 +12,8 @@
   :root {
     --navy:  #0B1D3A;
     --blue:  #1D4ED8;
-    --lblue: #DBEAFE;
     --dark:  #1E293B;
     --mid:   #475569;
-    --light: #94A3B8;
     --rule:  #CBD5E1;
     --bg:    #F8FAFC;
   }
@@ -25,7 +23,7 @@
     background: var(--bg);
     color: var(--dark);
     font-size: 10pt;
-    line-height: 1.5;
+    line-height: 1.45;
   }
 
   .page {
@@ -33,122 +31,155 @@
     min-height: 297mm;
     margin: 0 auto;
     background: white;
-    display: flex;
-    flex-direction: column;
   }
 
   /* ── HEADER ──────────────────────────────────────────── */
   .header {
     background: var(--navy);
     color: white;
-    padding: 22px 28px 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    padding: 20px 28px 16px;
   }
+  /* Use a table so both columns never overlap */
+  .header-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .header-table td { vertical-align: bottom; }
+  .header-table td.hd-right { text-align: right; width: 230px; }
+
   .header-left h1 {
-    font-size: 24pt;
+    font-size: 22pt;
     font-weight: 700;
     letter-spacing: 1px;
     line-height: 1.1;
     color: white;
   }
   .header-left .tagline {
-    font-size: 9pt;
+    font-size: 8.5pt;
     color: #93C5FD;
-    margin-top: 5px;
+    margin-top: 4px;
     font-style: italic;
   }
   .header-right {
-    text-align: right;
-    font-size: 8.5pt;
+    font-size: 8pt;
     color: #CBD5E1;
-    line-height: 1.8;
+    line-height: 1.7;
+    white-space: nowrap;
   }
   .header-right a { color: #93C5FD; text-decoration: none; }
 
   /* ── BODY ─────────────────────────────────────────────── */
-  .body { padding: 0 28px 20px; flex: 1; }
+  .body { padding: 0 28px 20px; }
 
   /* ── SECTION ─────────────────────────────────────────── */
-  .section { margin-top: 14px; }
+  .section { margin-top: 13px; }
   .section-title {
     background: var(--navy);
     color: white;
-    font-size: 9pt;
+    font-size: 8.5pt;
     font-weight: 700;
     letter-spacing: 1.5px;
-    padding: 4px 8px;
+    padding: 3px 8px;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 7px;
   }
 
   /* ── OBJECTIVE ──────────────────────────────────────── */
   .objective p {
-    font-size: 9.5pt;
+    font-size: 9pt;
     color: var(--dark);
     text-align: justify;
-    line-height: 1.55;
+    line-height: 1.5;
   }
 
   /* ── EDUCATION ───────────────────────────────────────── */
-  .edu-entry { margin-bottom: 8px; }
-  .edu-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 8px;
+  .edu-entry { margin-bottom: 7px; }
+  /* Table-row: title fills remaining width, date stays right, no overlap */
+  .row-table {
+    width: 100%;
+    border-collapse: collapse;
   }
-  .edu-row .title { font-weight: 700; font-size: 10pt; color: var(--dark); min-width: 0; flex: 1; }
-  .edu-row .date  { font-size: 8.5pt; color: var(--mid); font-style: italic; white-space: nowrap; flex-shrink: 0; }
-  .edu-inst { font-size: 9pt; font-weight: 600; color: var(--blue); margin: 1px 0 3px; }
-  .edu-detail { font-size: 9pt; color: var(--mid); line-height: 1.45; }
+  .row-table td { vertical-align: baseline; padding: 0; }
+  .row-table td.col-title {
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--dark);
+  }
+  .row-table td.col-date {
+    font-size: 8pt;
+    color: var(--mid);
+    font-style: italic;
+    white-space: nowrap;
+    text-align: right;
+    padding-left: 10px;
+  }
+  .row-table td.col-meta {
+    font-size: 8pt;
+    color: var(--mid);
+    font-style: italic;
+    white-space: nowrap;
+    text-align: right;
+    padding-left: 10px;
+  }
+  .edu-inst { font-size: 8.5pt; font-weight: 600; color: var(--blue); margin: 2px 0 2px; }
+  .edu-detail { font-size: 8.5pt; color: var(--mid); line-height: 1.4; }
 
   /* ── SKILLS ───────────────────────────────────────────── */
-  .skills-grid { display: grid; grid-template-columns: 140px 1fr; gap: 3px 12px; align-items: baseline; }
-  .skill-label { font-weight: 600; font-size: 9pt; color: var(--dark); padding: 3px 0; border-bottom: 0.4px solid var(--rule); }
-  .skill-value { font-size: 9pt; color: var(--dark); padding: 3px 0; border-bottom: 0.4px solid var(--rule); }
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .skills-table tr { border-bottom: 0.5px solid var(--rule); }
+  .skills-table td { padding: 3px 0; vertical-align: top; font-size: 8.5pt; }
+  .skills-table td.sk-label {
+    font-weight: 600;
+    color: var(--dark);
+    width: 145px;
+    padding-right: 12px;
+    white-space: nowrap;
+  }
+  .skills-table td.sk-value { color: var(--dark); }
 
   /* ── PROJECTS ────────────────────────────────────────── */
-  .project-entry { margin-bottom: 9px; }
-  .project-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 8px;
-  }
-  .project-row .title { font-weight: 700; font-size: 10pt; color: var(--dark); min-width: 0; flex: 1; }
-  .project-row .meta  { font-size: 8.5pt; color: var(--mid); font-style: italic; white-space: nowrap; flex-shrink: 0; }
-  .project-tech { font-size: 8.5pt; font-weight: 600; color: var(--blue); margin: 2px 0 3px; }
-  .project-bullets { list-style: none; padding: 0; }
+  .project-entry { margin-bottom: 8px; }
+  .project-tech { font-size: 8pt; font-weight: 600; color: var(--blue); margin: 2px 0 3px; }
+  .project-bullets { list-style: none; padding: 0; margin: 0; }
   .project-bullets li {
-    font-size: 9pt;
+    font-size: 8.5pt;
     color: var(--dark);
-    padding-left: 14px;
+    padding-left: 13px;
     position: relative;
-    line-height: 1.5;
+    line-height: 1.45;
     margin-bottom: 2px;
   }
   .project-bullets li::before {
     content: '-';
     position: absolute;
-    left: 3px;
+    left: 2px;
     color: var(--blue);
     font-weight: 700;
   }
 
   /* ── CERTS + ACHIEVEMENTS (2-col) ────────────────────── */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .two-col h4 { font-size: 9pt; font-weight: 700; color: var(--dark); margin-bottom: 5px; }
-  .two-col ul { list-style: none; padding: 0; }
-  .two-col li {
-    font-size: 9pt; color: var(--dark);
-    padding-left: 14px; position: relative;
-    line-height: 1.5; margin-bottom: 3px;
+  .two-col-table {
+    width: 100%;
+    border-collapse: collapse;
   }
-  .two-col li::before { content: '-'; position: absolute; left: 3px; color: var(--blue); font-weight: 700; }
-  .two-col li b { color: var(--dark); }
-  .two-col li i { color: var(--mid); }
+  .two-col-table td { vertical-align: top; width: 50%; padding-right: 14px; }
+  .two-col-table td:last-child { padding-right: 0; }
+  .two-col-table h4 { font-size: 8.5pt; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+  .two-col-table ul { list-style: none; padding: 0; }
+  .two-col-table li {
+    font-size: 8.5pt;
+    color: var(--dark);
+    padding-left: 13px;
+    position: relative;
+    line-height: 1.45;
+    margin-bottom: 3px;
+  }
+  .two-col-table li::before { content: '-'; position: absolute; left: 2px; color: var(--blue); font-weight: 700; }
+  .two-col-table li b { color: var(--dark); }
+  .two-col-table li i { color: var(--mid); font-style: italic; }
 
   /* ── PRINT BUTTON ────────────────────────────────────── */
   .print-btn {
@@ -165,9 +196,6 @@
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 4px 14px rgba(29,78,216,0.4);
-    display: flex;
-    align-items: center;
-    gap: 8px;
     z-index: 999;
     transition: background 0.2s;
   }
@@ -201,7 +229,7 @@ function downloadPDF() {
     margin:       0,
     filename:     'G_T_Prashanth_Resume.pdf',
     image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true, logging: false },
+    html2canvas:  { scale: 2, useCORS: true, logging: false, letterRendering: true },
     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
 
@@ -215,15 +243,23 @@ function downloadPDF() {
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-left">
-      <h1>G T PRASHANTH</h1>
-      <div class="tagline">AI Developer &nbsp;|&nbsp; Full Stack Engineer &nbsp;|&nbsp; Information Science and Technology Student</div>
-    </div>
-    <div class="header-right">
-      gtprashanth2@gmail.com &nbsp;|&nbsp; +91 63660 62095<br>
-      <a href="https://github.com/gt1432">github.com/gt1432</a> &nbsp;|&nbsp; <a href="https://linkedin.com/in/gt-prashanth">linkedin.com/in/gt-prashanth</a><br>
-      Bengaluru, India
-    </div>
+    <table class="header-table">
+      <tr>
+        <td>
+          <div class="header-left">
+            <h1>G T PRASHANTH</h1>
+            <div class="tagline">AI Developer &nbsp;|&nbsp; Full Stack Engineer &nbsp;|&nbsp; Information Science &amp; Technology Student</div>
+          </div>
+        </td>
+        <td class="hd-right">
+          <div class="header-right">
+            gtprashanth2@gmail.com &nbsp;|&nbsp; +91 63660 62095<br>
+            <a href="https://github.com/gt1432">github.com/gt1432</a> &nbsp;|&nbsp; <a href="https://linkedin.com/in/gt-prashanth">linkedin.com/in/gt-prashanth</a><br>
+            Bengaluru, India
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
 
   <div class="body">
@@ -239,27 +275,33 @@ function downloadPDF() {
       <div class="section-title">Education</div>
 
       <div class="edu-entry">
-        <div class="edu-row">
-          <span class="title">B.Tech in Information Science and Technology</span>
-          <span class="date">2024 – 2028 &nbsp;(Current)</span>
-        </div>
+        <table class="row-table">
+          <tr>
+            <td class="col-title">B.Tech in Information Science and Technology</td>
+            <td class="col-date">2024 – 2028 &nbsp;(Current)</td>
+          </tr>
+        </table>
         <div class="edu-inst">Presidency University, Bangalore &nbsp;|&nbsp; CGPA: 8.9 / 10</div>
-        <div class="edu-detail">Focused on Web Development, Machine Learning, OOPs, DBMS, and Data Structures & Algorithms. Actively building real-world projects and competing in hackathons.</div>
+        <div class="edu-detail">Focused on Web Development, Machine Learning, OOPs, DBMS, and Data Structures &amp; Algorithms. Actively building real-world projects and competing in hackathons.</div>
       </div>
 
       <div class="edu-entry">
-        <div class="edu-row">
-          <span class="title">Pre-University (Class 12 / PUC) — CBSE</span>
-          <span class="date">Completed 2024 &nbsp;|&nbsp; Score: 75%</span>
-        </div>
+        <table class="row-table">
+          <tr>
+            <td class="col-title">Pre-University (Class 12 / PUC) — CBSE</td>
+            <td class="col-date">Completed 2024 &nbsp;|&nbsp; Score: 75%</td>
+          </tr>
+        </table>
         <div class="edu-inst">Sri Chaitanya PU College, Bangalore</div>
       </div>
 
       <div class="edu-entry">
-        <div class="edu-row">
-          <span class="title">Secondary School (Class 10) — ICSE</span>
-          <span class="date">Completed 2022 &nbsp;|&nbsp; Score: 82%</span>
-        </div>
+        <table class="row-table">
+          <tr>
+            <td class="col-title">Secondary School (Class 10) — ICSE</td>
+            <td class="col-date">Completed 2022 &nbsp;|&nbsp; Score: 82%</td>
+          </tr>
+        </table>
         <div class="edu-inst">Gnana Jyoti School, Mulbagal</div>
       </div>
     </div>
@@ -267,18 +309,28 @@ function downloadPDF() {
     <!-- TECHNICAL SKILLS -->
     <div class="section">
       <div class="section-title">Technical Skills</div>
-      <div class="skills-grid">
-        <span class="skill-label">Programming Languages</span>
-        <span class="skill-value">Python, Java, C, PHP</span>
-        <span class="skill-label">Web Technologies</span>
-        <span class="skill-value">HTML5, CSS3, JavaScript, React, Bootstrap, Tailwind CSS, Flask</span>
-        <span class="skill-label">AI &amp; Machine Learning</span>
-        <span class="skill-value">TensorFlow, Scikit-learn, OpenCV, Pandas, NumPy, Deep Learning</span>
-        <span class="skill-label">Databases &amp; Tools</span>
-        <span class="skill-value">MySQL, Git, GitHub, VS Code, REST APIs</span>
-        <span class="skill-label">Soft Skills</span>
-        <span class="skill-value">Problem Solving, Teamwork, Communication, Time Management</span>
-      </div>
+      <table class="skills-table">
+        <tr>
+          <td class="sk-label">Programming Languages</td>
+          <td class="sk-value">Python, Java, C, PHP</td>
+        </tr>
+        <tr>
+          <td class="sk-label">Web Technologies</td>
+          <td class="sk-value">HTML5, CSS3, JavaScript, React, Bootstrap, Tailwind CSS, Flask</td>
+        </tr>
+        <tr>
+          <td class="sk-label">AI &amp; Machine Learning</td>
+          <td class="sk-value">TensorFlow, Scikit-learn, OpenCV, Pandas, NumPy, Deep Learning</td>
+        </tr>
+        <tr>
+          <td class="sk-label">Databases &amp; Tools</td>
+          <td class="sk-value">MySQL, Git, GitHub, VS Code, REST APIs</td>
+        </tr>
+        <tr>
+          <td class="sk-label">Soft Skills</td>
+          <td class="sk-value">Problem Solving, Teamwork, Communication, Time Management</td>
+        </tr>
+      </table>
     </div>
 
     <!-- PROJECTS -->
@@ -286,10 +338,12 @@ function downloadPDF() {
       <div class="section-title">Academic Projects</div>
 
       <div class="project-entry">
-        <div class="project-row">
-          <span class="title">GeoMiner AI</span>
-          <span class="meta">AI / Geospatial Resource Predictor — 2026</span>
-        </div>
+        <table class="row-table">
+          <tr>
+            <td class="col-title">GeoMiner AI</td>
+            <td class="col-meta">AI / Geospatial Resource Predictor — 2026</td>
+          </tr>
+        </table>
         <div class="project-tech">Tech: Python, Flask, Scikit-learn, GIS, Data Visualization</div>
         <ul class="project-bullets">
           <li>Designed an ML pipeline to analyze geospatial maps and predict mineral distribution patterns.</li>
@@ -298,10 +352,12 @@ function downloadPDF() {
       </div>
 
       <div class="project-entry">
-        <div class="project-row">
-          <span class="title">AgriGeo AI &nbsp;(GeoSmart-Agri)</span>
-          <span class="meta">Precision Agriculture Platform — 2026</span>
-        </div>
+        <table class="row-table">
+          <tr>
+            <td class="col-title">AgriGeo AI &nbsp;(GeoSmart-Agri)</td>
+            <td class="col-meta">Precision Agriculture Platform — 2026</td>
+          </tr>
+        </table>
         <div class="project-tech">Tech: HTML5, CSS3, JavaScript, Leaflet GIS, Bootstrap</div>
         <ul class="project-bullets">
           <li>Developed a precision farming platform using satellite data and geospatial maps to analyze soil health and recommend irrigation strategies.</li>
@@ -310,10 +366,12 @@ function downloadPDF() {
       </div>
 
       <div class="project-entry">
-        <div class="project-row">
-          <span class="title">Interactive Code Compiler</span>
-          <span class="meta">Web Developer Tool — 2026</span>
-        </div>
+        <table class="row-table">
+          <tr>
+            <td class="col-title">Interactive Code Compiler</td>
+            <td class="col-meta">Web Developer Tool — 2026</td>
+          </tr>
+        </table>
         <div class="project-tech">Tech: Java, Spring Boot, HTML5, CSS3, JavaScript, REST APIs</div>
         <ul class="project-bullets">
           <li>Built a glassmorphic in-browser code compiler supporting Java, Python, and C with real-time output streaming.</li>
@@ -322,10 +380,12 @@ function downloadPDF() {
       </div>
 
       <div class="project-entry">
-        <div class="project-row">
-          <span class="title">FocusLearn</span>
-          <span class="meta">EdTech Full-Stack Application — 2026</span>
-        </div>
+        <table class="row-table">
+          <tr>
+            <td class="col-title">FocusLearn</td>
+            <td class="col-meta">EdTech Full-Stack Application — 2026</td>
+          </tr>
+        </table>
         <div class="project-tech">Tech: HTML5, CSS3, JavaScript, PHP, MySQL</div>
         <ul class="project-bullets">
           <li>Created a student-productivity platform with daily planners, resource libraries, and visual progress tracking.</li>
@@ -337,24 +397,26 @@ function downloadPDF() {
     <!-- CERTIFICATIONS & ACHIEVEMENTS -->
     <div class="section">
       <div class="section-title">Certifications &amp; Achievements</div>
-      <div class="two-col">
-        <div>
-          <h4>Certifications</h4>
-          <ul>
-            <li><b>Machine Learning Specialization</b><br><i>DeepLearning.AI &amp; Stanford University (Coursera)</i></li>
-            <li><b>Geospatial Data Analysis with Python</b><br><i>Geospatial Association</i></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Achievements</h4>
-          <ul>
-            <li>Won top accolades for <b>AgriGeo AI</b> at college and regional hackathons.</li>
-            <li>Active open-source contributor on GitHub (EduBridge, FocusLearn).</li>
-            <li>Maintaining a <b>CGPA of 8.9 / 10</b> at Presidency University.</li>
-            <li>Languages: English (Fluent), Kannada (Native), Hindi (Conversational).</li>
-          </ul>
-        </div>
-      </div>
+      <table class="two-col-table">
+        <tr>
+          <td>
+            <h4>Certifications</h4>
+            <ul>
+              <li><b>Machine Learning Specialization</b><br><i>DeepLearning.AI &amp; Stanford University (Coursera)</i></li>
+              <li><b>Geospatial Data Analysis with Python</b><br><i>Geospatial Association</i></li>
+            </ul>
+          </td>
+          <td>
+            <h4>Achievements</h4>
+            <ul>
+              <li>Won top accolades for <b>AgriGeo AI</b> at college and regional hackathons.</li>
+              <li>Active open-source contributor on GitHub (EduBridge, FocusLearn).</li>
+              <li>Maintaining a <b>CGPA of 8.9 / 10</b> at Presidency University.</li>
+              <li>Languages: English (Fluent), Kannada (Native), Hindi (Conversational).</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
     </div>
 
   </div><!-- /body -->
