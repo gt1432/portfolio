@@ -9,74 +9,62 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
-    --navy: #0B1D3A;
-    --blue: #1D4ED8;
-    --dark: #1E293B;
-    --mid:  #475569;
-    --rule: #CBD5E1;
-    --bg:   #F8FAFC;
-  }
-
   body {
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    background: var(--bg);
-    color: var(--dark);
+    background: #F8FAFC;
+    color: #1E293B;
     font-size: 10pt;
     line-height: 1.45;
   }
 
-  /* ── PAGE ──────────────────────────────────────────────── */
+  /* ── PAGE: fixed 794px so pixel widths inside are predictable ── */
   .page {
-    width: 210mm;
-    min-height: 297mm;
+    width: 794px;
+    min-height: 1123px;
     margin: 0 auto;
     background: white;
   }
 
-  /* ── HEADER ──────────────────────────────────────────────
-     Use a single full-width table with FIXED column widths.
-     Left col = 58%, right col = 42% — they never overlap.
-  ───────────────────────────────────────────────────────── */
+  /* ═══════════════════════════════════════════════════════
+     HEADER — NO two-column layout, stacked rows only.
+     Name row:    Name (left)  +  Contact (right)  via a table
+     Tagline row: full-width below
+  ═══════════════════════════════════════════════════════ */
   .header {
-    background: var(--navy);
+    background: #0B1D3A;
     color: white;
     padding: 18px 28px 14px;
   }
-  .hdr-tbl {
-    width: 100%;
+
+  /* Top row: name left, contact right — colgroup pixel widths */
+  .hdr-top-tbl {
+    width: 738px;        /* 794 - 28*2 padding */
     border-collapse: collapse;
-    table-layout: fixed;   /* ← critical: respect declared widths */
   }
-  .hdr-tbl td {
-    vertical-align: bottom;
-    padding: 0;
-    overflow: hidden;
-  }
-  .hdr-tbl .col-left  { width: 58%; }
-  .hdr-tbl .col-right { width: 42%; text-align: right; }
+  .hdr-top-tbl td { padding: 0; vertical-align: top; }
 
   .hdr-name {
-    font-size: 21pt;
+    font-size: 22pt;
     font-weight: 700;
     letter-spacing: 1px;
     line-height: 1.1;
-    color: white;
+    color: #ffffff;
   }
-  .hdr-tagline {
-    font-size: 8pt;
-    color: #93C5FD;
-    margin-top: 4px;
-    font-style: italic;
-    /* allow wrapping so it never bleeds right */
-    word-break: break-word;
-  }
+
   .hdr-contact {
     font-size: 8pt;
     color: #CBD5E1;
     line-height: 1.75;
+    text-align: right;
   }
   .hdr-contact a { color: #93C5FD; text-decoration: none; }
+
+  .hdr-tagline {
+    font-size: 8.5pt;
+    color: #93C5FD;
+    font-style: italic;
+    margin-top: 5px;
+  }
 
   /* ── BODY ─────────────────────────────────────────────── */
   .body { padding: 0 28px 20px; }
@@ -84,7 +72,7 @@
   /* ── SECTION ─────────────────────────────────────────── */
   .section { margin-top: 12px; }
   .sec-title {
-    background: var(--navy);
+    background: #0B1D3A;
     color: white;
     font-size: 8.5pt;
     font-weight: 700;
@@ -92,69 +80,50 @@
     padding: 3px 8px;
     text-transform: uppercase;
     margin-bottom: 7px;
+    display: block;
   }
 
-  /* ── OBJECTIVE ──────────────────────────────────────── */
-  .objective p {
-    font-size: 9pt;
-    color: var(--dark);
-    text-align: justify;
-    line-height: 1.5;
-  }
-
-  /* ── ROW TABLE (used by Education & Projects)
-     table-layout: fixed so the title cell never pushes the date off.
+  /* ── SHARED ROW TABLE ─────────────────────────────────
+     Uses colgroup pixel widths + HTML width attribute.
+     Left col fills remaining space; right col is fixed.
   ──────────────────────────────────────────────────────── */
   .row-tbl {
-    width: 100%;
+    width: 738px;
     border-collapse: collapse;
-    table-layout: fixed;
   }
-  .row-tbl td { padding: 0; vertical-align: baseline; }
+  .row-tbl td { padding: 0; vertical-align: top; }
   .row-tbl .col-name {
     font-weight: 700;
     font-size: 10pt;
-    color: var(--dark);
-    /* left column takes remaining space */
+    color: #1E293B;
   }
   .row-tbl .col-date {
     font-size: 8pt;
-    color: var(--mid);
+    color: #475569;
     font-style: italic;
     text-align: right;
-    /* right column: just wide enough for the longest date string */
-    width: 185px;
-    vertical-align: baseline;
+    white-space: nowrap;
   }
 
   /* ── EDUCATION ───────────────────────────────────────── */
-  .edu-entry { margin-bottom: 7px; }
-  .edu-inst   { font-size: 8.5pt; font-weight: 600; color: var(--blue); margin: 2px 0 2px; }
-  .edu-detail { font-size: 8.5pt; color: var(--mid); line-height: 1.4; }
+  .edu-entry  { margin-bottom: 7px; }
+  .edu-inst   { font-size: 8.5pt; font-weight: 600; color: #1D4ED8; margin: 2px 0; }
+  .edu-detail { font-size: 8.5pt; color: #475569; line-height: 1.4; }
 
   /* ── SKILLS ───────────────────────────────────────────── */
-  .skills-tbl {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-  }
-  .skills-tbl tr { border-bottom: 0.5px solid var(--rule); }
-  .skills-tbl td { padding: 3px 0; vertical-align: top; font-size: 8.5pt; }
-  .skills-tbl .sk-lbl {
-    font-weight: 600;
-    color: var(--dark);
-    width: 145px;
-    padding-right: 10px;
-  }
-  .skills-tbl .sk-val { color: var(--dark); }
+  .skills-tbl { width: 738px; border-collapse: collapse; }
+  .skills-tbl tr  { border-bottom: 0.5px solid #CBD5E1; }
+  .skills-tbl td  { padding: 3px 0; vertical-align: top; font-size: 8.5pt; }
+  .skills-tbl .sk-lbl { font-weight: 600; color: #1E293B; padding-right: 10px; }
+  .skills-tbl .sk-val { color: #1E293B; }
 
   /* ── PROJECTS ────────────────────────────────────────── */
-  .proj-entry { margin-bottom: 8px; }
-  .proj-tech  { font-size: 8pt; font-weight: 600; color: var(--blue); margin: 2px 0 3px; }
+  .proj-entry   { margin-bottom: 8px; }
+  .proj-tech    { font-size: 8pt; font-weight: 600; color: #1D4ED8; margin: 2px 0 3px; }
   .proj-bullets { list-style: none; padding: 0; margin: 0; }
   .proj-bullets li {
     font-size: 8.5pt;
-    color: var(--dark);
+    color: #1E293B;
     padding-left: 13px;
     position: relative;
     line-height: 1.45;
@@ -164,31 +133,27 @@
     content: '-';
     position: absolute;
     left: 2px;
-    color: var(--blue);
+    color: #1D4ED8;
     font-weight: 700;
   }
 
-  /* ── CERTS + ACHIEVEMENTS ─────────────────────────────── */
-  .two-tbl {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-  }
-  .two-tbl td { vertical-align: top; width: 50%; padding-right: 14px; }
+  /* ── CERTIFICATIONS & ACHIEVEMENTS 2-col ─────────────── */
+  .two-tbl { width: 738px; border-collapse: collapse; }
+  .two-tbl td { vertical-align: top; padding-right: 14px; }
   .two-tbl td:last-child { padding-right: 0; }
-  .two-tbl h4 { font-size: 8.5pt; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+  .two-tbl h4 { font-size: 8.5pt; font-weight: 700; color: #1E293B; margin-bottom: 4px; }
   .two-tbl ul { list-style: none; padding: 0; }
   .two-tbl li {
     font-size: 8.5pt;
-    color: var(--dark);
+    color: #1E293B;
     padding-left: 13px;
     position: relative;
     line-height: 1.45;
     margin-bottom: 3px;
   }
-  .two-tbl li::before { content: '-'; position: absolute; left: 2px; color: var(--blue); font-weight: 700; }
-  .two-tbl li b { color: var(--dark); }
-  .two-tbl li i { color: var(--mid); font-style: italic; }
+  .two-tbl li::before { content: '-'; position: absolute; left: 2px; color: #1D4ED8; font-weight: 700; }
+  .two-tbl li b { color: #1E293B; }
+  .two-tbl li i { color: #475569; font-style: italic; }
 
   /* ── DOWNLOAD BUTTON ─────────────────────────────────── */
   .print-btn {
@@ -209,7 +174,6 @@
   }
   .print-btn:hover { background: #1e40af; }
 
-  /* ── PRINT ──────────────────────────────────────────── */
   @media print {
     body { background: white; }
     .page { width: 100%; margin: 0; }
@@ -222,41 +186,42 @@
 <body>
 
 <button class="print-btn" id="downloadBtn" onclick="downloadPDF()">
-  &#10515;&nbsp; <span id="btnText">Download PDF</span>
+  &#10515;&nbsp;<span id="btnText">Download PDF</span>
 </button>
 
 <script>
 function downloadPDF() {
   var btn = document.getElementById('downloadBtn');
-  var btnText = document.getElementById('btnText');
-  btn.disabled = true;
-  btnText.textContent = 'Generating...';
-  var element = document.querySelector('.page');
-  var opt = {
+  var t   = document.getElementById('btnText');
+  btn.disabled = true; t.textContent = 'Generating...';
+  html2pdf().set({
     margin: 0,
     filename: 'G_T_Prashanth_Resume.pdf',
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true, logging: false, letterRendering: true },
+    html2canvas: { scale: 2, useCORS: true, logging: false },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
-  html2pdf().set(opt).from(element).save().then(function() {
-    btn.disabled = false;
-    btnText.textContent = 'Download PDF';
+  }).from(document.querySelector('.page')).save().then(function(){
+    btn.disabled = false; t.textContent = 'Download PDF';
   });
 }
 </script>
 
 <div class="page">
 
-  <!-- ═══════════════ HEADER ═══════════════ -->
+  <!-- ═══ HEADER ═══ -->
   <div class="header">
-    <table class="hdr-tbl">
+
+    <!-- Name (left) + Contact (right) — pixel-width colgroup prevents overlap -->
+    <table class="hdr-top-tbl" cellpadding="0" cellspacing="0">
+      <colgroup>
+        <col width="420">
+        <col width="318">
+      </colgroup>
       <tr>
-        <td class="col-left">
+        <td valign="bottom">
           <div class="hdr-name">G T PRASHANTH</div>
-          <div class="hdr-tagline">AI Developer &nbsp;|&nbsp; Full Stack Engineer &nbsp;|&nbsp; IST Student</div>
         </td>
-        <td class="col-right">
+        <td valign="bottom" align="right">
           <div class="hdr-contact">
             gtprashanth2@gmail.com &nbsp;|&nbsp; +91 63660 62095<br>
             <a href="https://github.com/gt1432">github.com/gt1432</a> &nbsp;|&nbsp;
@@ -266,26 +231,35 @@ function downloadPDF() {
         </td>
       </tr>
     </table>
-  </div>
+
+    <!-- Tagline is full-width below — no overlap possible -->
+    <div class="hdr-tagline">
+      AI Developer &nbsp;|&nbsp; Full Stack Engineer &nbsp;|&nbsp; Information Science &amp; Technology Student
+    </div>
+
+  </div><!-- /header -->
 
   <div class="body">
 
-    <!-- ═══════════════ CAREER OBJECTIVE ═══════════════ -->
+    <!-- ═══ CAREER OBJECTIVE ═══ -->
     <div class="section objective">
       <div class="sec-title">Career Objective</div>
-      <p>Results-driven <strong>Information Science and Technology</strong> student at Presidency University, Bangalore
-        (CGPA: <strong>8.9/10</strong>) with expertise in Web Development and Machine Learning.
-        Experienced in developing full-stack applications and implementing intelligent AI systems using modern frameworks.
-        Seeking a <strong>Software Engineer</strong> or <strong>ML Engineer</strong> role to design scalable systems
-        and deliver high-impact solutions.</p>
+      <p style="font-size:9pt;color:#1E293B;text-align:justify;line-height:1.5;">
+        Results-driven <strong>Information Science and Technology</strong> student at Presidency University,
+        Bangalore (CGPA: <strong>8.9/10</strong>) with expertise in Web Development and Machine Learning.
+        Experienced in developing full-stack applications and implementing intelligent AI systems using modern
+        frameworks. Seeking a <strong>Software Engineer</strong> or <strong>ML Engineer</strong> role to design
+        scalable systems and deliver high-impact solutions.
+      </p>
     </div>
 
-    <!-- ═══════════════ EDUCATION ═══════════════ -->
+    <!-- ═══ EDUCATION ═══ -->
     <div class="section">
       <div class="sec-title">Education</div>
 
       <div class="edu-entry">
-        <table class="row-tbl">
+        <table class="row-tbl" cellpadding="0" cellspacing="0">
+          <colgroup><col width="538"><col width="200"></colgroup>
           <tr>
             <td class="col-name">B.Tech in Information Science and Technology</td>
             <td class="col-date">2024 &ndash; 2028 &nbsp;(Current)</td>
@@ -296,32 +270,35 @@ function downloadPDF() {
       </div>
 
       <div class="edu-entry">
-        <table class="row-tbl">
+        <table class="row-tbl" cellpadding="0" cellspacing="0">
+          <colgroup><col width="538"><col width="200"></colgroup>
           <tr>
             <td class="col-name">Pre-University (Class 12 / PUC) &mdash; CBSE</td>
-            <td class="col-date">Completed 2024 &nbsp;|&nbsp; Score: 75%</td>
+            <td class="col-date">Completed 2024 &nbsp;|&nbsp; 75%</td>
           </tr>
         </table>
         <div class="edu-inst">Sri Chaitanya PU College, Bangalore</div>
       </div>
 
       <div class="edu-entry">
-        <table class="row-tbl">
+        <table class="row-tbl" cellpadding="0" cellspacing="0">
+          <colgroup><col width="538"><col width="200"></colgroup>
           <tr>
             <td class="col-name">Secondary School (Class 10) &mdash; ICSE</td>
-            <td class="col-date">Completed 2022 &nbsp;|&nbsp; Score: 82%</td>
+            <td class="col-date">Completed 2022 &nbsp;|&nbsp; 82%</td>
           </tr>
         </table>
         <div class="edu-inst">Gnana Jyoti School, Mulbagal</div>
       </div>
     </div>
 
-    <!-- ═══════════════ TECHNICAL SKILLS ═══════════════ -->
+    <!-- ═══ TECHNICAL SKILLS ═══ -->
     <div class="section">
       <div class="sec-title">Technical Skills</div>
-      <table class="skills-tbl">
+      <table class="skills-tbl" cellpadding="0" cellspacing="0">
+        <colgroup><col width="148"><col width="590"></colgroup>
         <tr>
-          <td class="sk-lbl">Programming Languages</td>
+          <td class="sk-lbl">Programming</td>
           <td class="sk-val">Python, Java, C, PHP</td>
         </tr>
         <tr>
@@ -329,7 +306,7 @@ function downloadPDF() {
           <td class="sk-val">HTML5, CSS3, JavaScript, React, Bootstrap, Tailwind CSS, Flask</td>
         </tr>
         <tr>
-          <td class="sk-lbl">AI &amp; Machine Learning</td>
+          <td class="sk-lbl">AI &amp; ML</td>
           <td class="sk-val">TensorFlow, Scikit-learn, OpenCV, Pandas, NumPy, Deep Learning</td>
         </tr>
         <tr>
@@ -343,15 +320,16 @@ function downloadPDF() {
       </table>
     </div>
 
-    <!-- ═══════════════ ACADEMIC PROJECTS ═══════════════ -->
+    <!-- ═══ ACADEMIC PROJECTS ═══ -->
     <div class="section">
       <div class="sec-title">Academic Projects</div>
 
       <div class="proj-entry">
-        <table class="row-tbl">
+        <table class="row-tbl" cellpadding="0" cellspacing="0">
+          <colgroup><col width="478"><col width="260"></colgroup>
           <tr>
             <td class="col-name">GeoMiner AI</td>
-            <td class="col-date">AI / Geospatial Resource Predictor &mdash; 2026</td>
+            <td class="col-date">Geospatial Resource Predictor &mdash; 2026</td>
           </tr>
         </table>
         <div class="proj-tech">Tech: Python, Flask, Scikit-learn, GIS, Data Visualization</div>
@@ -362,7 +340,8 @@ function downloadPDF() {
       </div>
 
       <div class="proj-entry">
-        <table class="row-tbl">
+        <table class="row-tbl" cellpadding="0" cellspacing="0">
+          <colgroup><col width="478"><col width="260"></colgroup>
           <tr>
             <td class="col-name">AgriGeo AI &nbsp;(GeoSmart-Agri)</td>
             <td class="col-date">Precision Agriculture Platform &mdash; 2026</td>
@@ -376,7 +355,8 @@ function downloadPDF() {
       </div>
 
       <div class="proj-entry">
-        <table class="row-tbl">
+        <table class="row-tbl" cellpadding="0" cellspacing="0">
+          <colgroup><col width="478"><col width="260"></colgroup>
           <tr>
             <td class="col-name">Interactive Code Compiler</td>
             <td class="col-date">Web Developer Tool &mdash; 2026</td>
@@ -390,7 +370,8 @@ function downloadPDF() {
       </div>
 
       <div class="proj-entry">
-        <table class="row-tbl">
+        <table class="row-tbl" cellpadding="0" cellspacing="0">
+          <colgroup><col width="478"><col width="260"></colgroup>
           <tr>
             <td class="col-name">FocusLearn</td>
             <td class="col-date">EdTech Full-Stack Application &mdash; 2026</td>
@@ -404,19 +385,20 @@ function downloadPDF() {
       </div>
     </div>
 
-    <!-- ═══════════════ CERTIFICATIONS & ACHIEVEMENTS ═══════════════ -->
+    <!-- ═══ CERTIFICATIONS & ACHIEVEMENTS ═══ -->
     <div class="section">
       <div class="sec-title">Certifications &amp; Achievements</div>
-      <table class="two-tbl">
+      <table class="two-tbl" cellpadding="0" cellspacing="0">
+        <colgroup><col width="362"><col width="376"></colgroup>
         <tr>
-          <td>
+          <td valign="top">
             <h4>Certifications</h4>
             <ul>
               <li><b>Machine Learning Specialization</b><br><i>DeepLearning.AI &amp; Stanford University (Coursera)</i></li>
               <li><b>Geospatial Data Analysis with Python</b><br><i>Geospatial Association</i></li>
             </ul>
           </td>
-          <td>
+          <td valign="top">
             <h4>Achievements</h4>
             <ul>
               <li>Won top accolades for <b>AgriGeo AI</b> at college and regional hackathons.</li>
