@@ -27,9 +27,8 @@ const CONFIG = {
   // Coding Profiles (Placeholders)
   codingProfiles: [
     { platform: "GitHub", username: "gt1432", url: "https://github.com/gt1432", icon: "fa-brands fa-github", color: "#333" },
-    { platform: "LeetCode", username: "gt1432", url: "https://leetcode.com/u/gt1432/", icon: "fa-solid fa-code", color: "#ffa116" },
-    { platform: "HackerRank", username: "gt1432", url: "https://www.hackerrank.com/profile/gt1432", icon: "fa-brands fa-hackerrank", color: "#2ec866" },
-    { platform: "CodeChef", username: "gt1432", url: "https://www.codechef.com/users/gt1432", icon: "fa-solid fa-cookie", color: "#5b4636" }
+    { platform: "LeetCode", username: "prashanth1432", url: "https://leetcode.com/u/prashanth1432/", icon: "fa-solid fa-code", color: "#ffa116" },
+    { platform: "HackerRank", username: "gtprashanth", url: "https://www.hackerrank.com/profile/gtprashanth", icon: "fa-brands fa-hackerrank", color: "#2ec866" }
   ],
 
   // Education Details
@@ -95,14 +94,14 @@ const CONFIG = {
     {
       title: "AI & Machine Learning Projects",
       subtitle: "Independent & Academic Development",
-      period: "2025 - Present",
+      period: "2026 - Present",
       description: "Designed and implemented end-to-end Machine Learning pipelines using Scikit-Learn and TensorFlow. Built GeoMiner AI, an artificial intelligence tool for extracting spatial mining patterns and predicting resource distributions.",
       icon: "fa-solid fa-brain"
     },
     {
       title: "Full Stack Web Projects",
       subtitle: "EduBridge & FocusLearn",
-      period: "2025",
+      period: "2026",
       description: "Developed responsive web applications with interactive frontends and backend services. EduBridge bridges the learning gap for students, while FocusLearn provides a structured space for visual and focus-oriented course modules.",
       icon: "fa-solid fa-laptop-code"
     },
@@ -110,7 +109,7 @@ const CONFIG = {
     {
       title: "Hackathons & Team Collaboration",
       subtitle: "Presidency University & Inter-college Events",
-      period: "2025 - Present",
+      period: "2026 - Present",
       description: "Participated in regional and institutional hackathons. Formulated concepts, divided development responsibilities in high-pressure team settings, and pitched projects like AgriGeo AI (GeoSmart-Agri) to panels of industry experts.",
       icon: "fa-solid fa-users"
     }
@@ -120,19 +119,19 @@ const CONFIG = {
   achievements: [
     {
       title: "Hackathon Excellence",
-      period: "2025",
+      period: "2026",
       description: "Pitched and showcased AgriGeo AI (GeoSmart-Agri), winning accolades for outstanding integration of geospatial analytics and precision farming models.",
       icon: "fa-solid fa-trophy"
     },
     {
       title: "AI/ML Solutions Deployment",
-      period: "2025",
+      period: "2026",
       description: "Developed and published GeoMiner AI, demonstrating active knowledge of geospatial analysis, pattern recognition, and predictive machine learning models.",
       icon: "fa-solid fa-gears"
     },
     {
       title: "GitHub Open Source Contributions",
-      period: "2025 - Present",
+      period: "2026 - Present",
       description: "Maintained active repositories including code-compiler, focuslearn, and EduBridge. Built dynamic utilities, keeping code structures optimized and clean.",
       icon: "fa-brands fa-git-alt"
     },
@@ -149,28 +148,28 @@ const CONFIG = {
     {
       name: "Machine Learning Specialization",
       issuer: "DeepLearning.AI & Stanford University (Coursera)",
-      date: "2025",
+      date: "2026",
       link: "#",
       icon: "fa-solid fa-certificate"
     },
     {
       name: "Geospatial Data Analysis with Python",
       issuer: "Geospatial Association",
-      date: "2025",
+      date: "2026",
       link: "#",
       icon: "fa-solid fa-map-location-dot"
     },
     {
       name: "Full Stack Web Development",
       issuer: "Presidency University CSE Dept",
-      date: "2025",
+      date: "2026",
       link: "#",
       icon: "fa-solid fa-code"
     },
     {
       name: "Arduino IoT Developer Certificate",
       issuer: "IoT Academy",
-      date: "2025",
+      date: "2026",
       link: "#",
       icon: "fa-solid fa-microchip"
     }
