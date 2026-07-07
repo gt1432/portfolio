@@ -10,12 +10,12 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --navy:  #0B1D3A;
-    --blue:  #1D4ED8;
-    --dark:  #1E293B;
-    --mid:   #475569;
-    --rule:  #CBD5E1;
-    --bg:    #F8FAFC;
+    --navy: #0B1D3A;
+    --blue: #1D4ED8;
+    --dark: #1E293B;
+    --mid:  #475569;
+    --rule: #CBD5E1;
+    --bg:   #F8FAFC;
   }
 
   body {
@@ -26,6 +26,7 @@
     line-height: 1.45;
   }
 
+  /* ── PAGE ──────────────────────────────────────────────── */
   .page {
     width: 210mm;
     min-height: 297mm;
@@ -33,47 +34,56 @@
     background: white;
   }
 
-  /* ── HEADER ──────────────────────────────────────────── */
+  /* ── HEADER ──────────────────────────────────────────────
+     Use a single full-width table with FIXED column widths.
+     Left col = 58%, right col = 42% — they never overlap.
+  ───────────────────────────────────────────────────────── */
   .header {
     background: var(--navy);
     color: white;
-    padding: 20px 28px 16px;
+    padding: 18px 28px 14px;
   }
-  /* Use a table so both columns never overlap */
-  .header-table {
+  .hdr-tbl {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;   /* ← critical: respect declared widths */
   }
-  .header-table td { vertical-align: bottom; }
-  .header-table td.hd-right { text-align: right; width: 230px; }
+  .hdr-tbl td {
+    vertical-align: bottom;
+    padding: 0;
+    overflow: hidden;
+  }
+  .hdr-tbl .col-left  { width: 58%; }
+  .hdr-tbl .col-right { width: 42%; text-align: right; }
 
-  .header-left h1 {
-    font-size: 22pt;
+  .hdr-name {
+    font-size: 21pt;
     font-weight: 700;
     letter-spacing: 1px;
     line-height: 1.1;
     color: white;
   }
-  .header-left .tagline {
-    font-size: 8.5pt;
+  .hdr-tagline {
+    font-size: 8pt;
     color: #93C5FD;
     margin-top: 4px;
     font-style: italic;
+    /* allow wrapping so it never bleeds right */
+    word-break: break-word;
   }
-  .header-right {
+  .hdr-contact {
     font-size: 8pt;
     color: #CBD5E1;
-    line-height: 1.7;
-    white-space: nowrap;
+    line-height: 1.75;
   }
-  .header-right a { color: #93C5FD; text-decoration: none; }
+  .hdr-contact a { color: #93C5FD; text-decoration: none; }
 
   /* ── BODY ─────────────────────────────────────────────── */
   .body { padding: 0 28px 20px; }
 
   /* ── SECTION ─────────────────────────────────────────── */
-  .section { margin-top: 13px; }
-  .section-title {
+  .section { margin-top: 12px; }
+  .sec-title {
     background: var(--navy);
     color: white;
     font-size: 8.5pt;
@@ -92,59 +102,57 @@
     line-height: 1.5;
   }
 
-  /* ── EDUCATION ───────────────────────────────────────── */
-  .edu-entry { margin-bottom: 7px; }
-  /* Table-row: title fills remaining width, date stays right, no overlap */
-  .row-table {
+  /* ── ROW TABLE (used by Education & Projects)
+     table-layout: fixed so the title cell never pushes the date off.
+  ──────────────────────────────────────────────────────── */
+  .row-tbl {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
   }
-  .row-table td { vertical-align: baseline; padding: 0; }
-  .row-table td.col-title {
+  .row-tbl td { padding: 0; vertical-align: baseline; }
+  .row-tbl .col-name {
     font-weight: 700;
     font-size: 10pt;
     color: var(--dark);
+    /* left column takes remaining space */
   }
-  .row-table td.col-date {
+  .row-tbl .col-date {
     font-size: 8pt;
     color: var(--mid);
     font-style: italic;
-    white-space: nowrap;
     text-align: right;
-    padding-left: 10px;
+    /* right column: just wide enough for the longest date string */
+    width: 185px;
+    vertical-align: baseline;
   }
-  .row-table td.col-meta {
-    font-size: 8pt;
-    color: var(--mid);
-    font-style: italic;
-    white-space: nowrap;
-    text-align: right;
-    padding-left: 10px;
-  }
-  .edu-inst { font-size: 8.5pt; font-weight: 600; color: var(--blue); margin: 2px 0 2px; }
+
+  /* ── EDUCATION ───────────────────────────────────────── */
+  .edu-entry { margin-bottom: 7px; }
+  .edu-inst   { font-size: 8.5pt; font-weight: 600; color: var(--blue); margin: 2px 0 2px; }
   .edu-detail { font-size: 8.5pt; color: var(--mid); line-height: 1.4; }
 
   /* ── SKILLS ───────────────────────────────────────────── */
-  .skills-table {
+  .skills-tbl {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
   }
-  .skills-table tr { border-bottom: 0.5px solid var(--rule); }
-  .skills-table td { padding: 3px 0; vertical-align: top; font-size: 8.5pt; }
-  .skills-table td.sk-label {
+  .skills-tbl tr { border-bottom: 0.5px solid var(--rule); }
+  .skills-tbl td { padding: 3px 0; vertical-align: top; font-size: 8.5pt; }
+  .skills-tbl .sk-lbl {
     font-weight: 600;
     color: var(--dark);
     width: 145px;
-    padding-right: 12px;
-    white-space: nowrap;
+    padding-right: 10px;
   }
-  .skills-table td.sk-value { color: var(--dark); }
+  .skills-tbl .sk-val { color: var(--dark); }
 
   /* ── PROJECTS ────────────────────────────────────────── */
-  .project-entry { margin-bottom: 8px; }
-  .project-tech { font-size: 8pt; font-weight: 600; color: var(--blue); margin: 2px 0 3px; }
-  .project-bullets { list-style: none; padding: 0; margin: 0; }
-  .project-bullets li {
+  .proj-entry { margin-bottom: 8px; }
+  .proj-tech  { font-size: 8pt; font-weight: 600; color: var(--blue); margin: 2px 0 3px; }
+  .proj-bullets { list-style: none; padding: 0; margin: 0; }
+  .proj-bullets li {
     font-size: 8.5pt;
     color: var(--dark);
     padding-left: 13px;
@@ -152,7 +160,7 @@
     line-height: 1.45;
     margin-bottom: 2px;
   }
-  .project-bullets li::before {
+  .proj-bullets li::before {
     content: '-';
     position: absolute;
     left: 2px;
@@ -160,16 +168,17 @@
     font-weight: 700;
   }
 
-  /* ── CERTS + ACHIEVEMENTS (2-col) ────────────────────── */
-  .two-col-table {
+  /* ── CERTS + ACHIEVEMENTS ─────────────────────────────── */
+  .two-tbl {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
   }
-  .two-col-table td { vertical-align: top; width: 50%; padding-right: 14px; }
-  .two-col-table td:last-child { padding-right: 0; }
-  .two-col-table h4 { font-size: 8.5pt; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
-  .two-col-table ul { list-style: none; padding: 0; }
-  .two-col-table li {
+  .two-tbl td { vertical-align: top; width: 50%; padding-right: 14px; }
+  .two-tbl td:last-child { padding-right: 0; }
+  .two-tbl h4 { font-size: 8.5pt; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+  .two-tbl ul { list-style: none; padding: 0; }
+  .two-tbl li {
     font-size: 8.5pt;
     color: var(--dark);
     padding-left: 13px;
@@ -177,15 +186,14 @@
     line-height: 1.45;
     margin-bottom: 3px;
   }
-  .two-col-table li::before { content: '-'; position: absolute; left: 2px; color: var(--blue); font-weight: 700; }
-  .two-col-table li b { color: var(--dark); }
-  .two-col-table li i { color: var(--mid); font-style: italic; }
+  .two-tbl li::before { content: '-'; position: absolute; left: 2px; color: var(--blue); font-weight: 700; }
+  .two-tbl li b { color: var(--dark); }
+  .two-tbl li i { color: var(--mid); font-style: italic; }
 
-  /* ── PRINT BUTTON ────────────────────────────────────── */
+  /* ── DOWNLOAD BUTTON ─────────────────────────────────── */
   .print-btn {
     position: fixed;
-    top: 18px;
-    right: 24px;
+    top: 18px; right: 24px;
     background: #1D4ED8;
     color: white;
     border: none;
@@ -209,52 +217,50 @@
     @page { margin: 0; size: A4; }
   }
 </style>
-<!-- html2pdf library for one-click PDF download -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
+
 <button class="print-btn" id="downloadBtn" onclick="downloadPDF()">
   &#10515;&nbsp; <span id="btnText">Download PDF</span>
 </button>
 
 <script>
 function downloadPDF() {
-  const btn = document.getElementById('downloadBtn');
-  const btnText = document.getElementById('btnText');
+  var btn = document.getElementById('downloadBtn');
+  var btnText = document.getElementById('btnText');
   btn.disabled = true;
   btnText.textContent = 'Generating...';
-
-  const element = document.querySelector('.page');
-  const opt = {
-    margin:       0,
-    filename:     'G_T_Prashanth_Resume.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true, logging: false, letterRendering: true },
-    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  var element = document.querySelector('.page');
+  var opt = {
+    margin: 0,
+    filename: 'G_T_Prashanth_Resume.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true, logging: false, letterRendering: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
-
-  html2pdf().set(opt).from(element).save().then(() => {
+  html2pdf().set(opt).from(element).save().then(function() {
     btn.disabled = false;
     btnText.textContent = 'Download PDF';
   });
 }
 </script>
+
 <div class="page">
 
-  <!-- HEADER -->
+  <!-- ═══════════════ HEADER ═══════════════ -->
   <div class="header">
-    <table class="header-table">
+    <table class="hdr-tbl">
       <tr>
-        <td>
-          <div class="header-left">
-            <h1>G T PRASHANTH</h1>
-            <div class="tagline">AI Developer &nbsp;|&nbsp; Full Stack Engineer &nbsp;|&nbsp; Information Science &amp; Technology Student</div>
-          </div>
+        <td class="col-left">
+          <div class="hdr-name">G T PRASHANTH</div>
+          <div class="hdr-tagline">AI Developer &nbsp;|&nbsp; Full Stack Engineer &nbsp;|&nbsp; IST Student</div>
         </td>
-        <td class="hd-right">
-          <div class="header-right">
+        <td class="col-right">
+          <div class="hdr-contact">
             gtprashanth2@gmail.com &nbsp;|&nbsp; +91 63660 62095<br>
-            <a href="https://github.com/gt1432">github.com/gt1432</a> &nbsp;|&nbsp; <a href="https://linkedin.com/in/gt-prashanth">linkedin.com/in/gt-prashanth</a><br>
+            <a href="https://github.com/gt1432">github.com/gt1432</a> &nbsp;|&nbsp;
+            <a href="https://linkedin.com/in/gt-prashanth">linkedin.com/in/gt-prashanth</a><br>
             Bengaluru, India
           </div>
         </td>
@@ -264,21 +270,25 @@ function downloadPDF() {
 
   <div class="body">
 
-    <!-- CAREER OBJECTIVE -->
+    <!-- ═══════════════ CAREER OBJECTIVE ═══════════════ -->
     <div class="section objective">
-      <div class="section-title">Career Objective</div>
-      <p>Results-driven <strong>Information Science and Technology</strong> student at Presidency University, Bangalore (CGPA: <strong>8.9/10</strong>) with expertise in Web Development and Machine Learning. Experienced in developing full-stack applications and implementing intelligent AI systems using modern frameworks and tools. Seeking a <strong>Software Engineer</strong> or <strong>ML Engineer</strong> role to design scalable systems and deliver high-impact solutions.</p>
+      <div class="sec-title">Career Objective</div>
+      <p>Results-driven <strong>Information Science and Technology</strong> student at Presidency University, Bangalore
+        (CGPA: <strong>8.9/10</strong>) with expertise in Web Development and Machine Learning.
+        Experienced in developing full-stack applications and implementing intelligent AI systems using modern frameworks.
+        Seeking a <strong>Software Engineer</strong> or <strong>ML Engineer</strong> role to design scalable systems
+        and deliver high-impact solutions.</p>
     </div>
 
-    <!-- EDUCATION -->
+    <!-- ═══════════════ EDUCATION ═══════════════ -->
     <div class="section">
-      <div class="section-title">Education</div>
+      <div class="sec-title">Education</div>
 
       <div class="edu-entry">
-        <table class="row-table">
+        <table class="row-tbl">
           <tr>
-            <td class="col-title">B.Tech in Information Science and Technology</td>
-            <td class="col-date">2024 – 2028 &nbsp;(Current)</td>
+            <td class="col-name">B.Tech in Information Science and Technology</td>
+            <td class="col-date">2024 &ndash; 2028 &nbsp;(Current)</td>
           </tr>
         </table>
         <div class="edu-inst">Presidency University, Bangalore &nbsp;|&nbsp; CGPA: 8.9 / 10</div>
@@ -286,9 +296,9 @@ function downloadPDF() {
       </div>
 
       <div class="edu-entry">
-        <table class="row-table">
+        <table class="row-tbl">
           <tr>
-            <td class="col-title">Pre-University (Class 12 / PUC) — CBSE</td>
+            <td class="col-name">Pre-University (Class 12 / PUC) &mdash; CBSE</td>
             <td class="col-date">Completed 2024 &nbsp;|&nbsp; Score: 75%</td>
           </tr>
         </table>
@@ -296,9 +306,9 @@ function downloadPDF() {
       </div>
 
       <div class="edu-entry">
-        <table class="row-table">
+        <table class="row-tbl">
           <tr>
-            <td class="col-title">Secondary School (Class 10) — ICSE</td>
+            <td class="col-name">Secondary School (Class 10) &mdash; ICSE</td>
             <td class="col-date">Completed 2022 &nbsp;|&nbsp; Score: 82%</td>
           </tr>
         </table>
@@ -306,98 +316,98 @@ function downloadPDF() {
       </div>
     </div>
 
-    <!-- TECHNICAL SKILLS -->
+    <!-- ═══════════════ TECHNICAL SKILLS ═══════════════ -->
     <div class="section">
-      <div class="section-title">Technical Skills</div>
-      <table class="skills-table">
+      <div class="sec-title">Technical Skills</div>
+      <table class="skills-tbl">
         <tr>
-          <td class="sk-label">Programming Languages</td>
-          <td class="sk-value">Python, Java, C, PHP</td>
+          <td class="sk-lbl">Programming Languages</td>
+          <td class="sk-val">Python, Java, C, PHP</td>
         </tr>
         <tr>
-          <td class="sk-label">Web Technologies</td>
-          <td class="sk-value">HTML5, CSS3, JavaScript, React, Bootstrap, Tailwind CSS, Flask</td>
+          <td class="sk-lbl">Web Technologies</td>
+          <td class="sk-val">HTML5, CSS3, JavaScript, React, Bootstrap, Tailwind CSS, Flask</td>
         </tr>
         <tr>
-          <td class="sk-label">AI &amp; Machine Learning</td>
-          <td class="sk-value">TensorFlow, Scikit-learn, OpenCV, Pandas, NumPy, Deep Learning</td>
+          <td class="sk-lbl">AI &amp; Machine Learning</td>
+          <td class="sk-val">TensorFlow, Scikit-learn, OpenCV, Pandas, NumPy, Deep Learning</td>
         </tr>
         <tr>
-          <td class="sk-label">Databases &amp; Tools</td>
-          <td class="sk-value">MySQL, Git, GitHub, VS Code, REST APIs</td>
+          <td class="sk-lbl">Databases &amp; Tools</td>
+          <td class="sk-val">MySQL, Git, GitHub, VS Code, REST APIs</td>
         </tr>
         <tr>
-          <td class="sk-label">Soft Skills</td>
-          <td class="sk-value">Problem Solving, Teamwork, Communication, Time Management</td>
+          <td class="sk-lbl">Soft Skills</td>
+          <td class="sk-val">Problem Solving, Teamwork, Communication, Time Management</td>
         </tr>
       </table>
     </div>
 
-    <!-- PROJECTS -->
+    <!-- ═══════════════ ACADEMIC PROJECTS ═══════════════ -->
     <div class="section">
-      <div class="section-title">Academic Projects</div>
+      <div class="sec-title">Academic Projects</div>
 
-      <div class="project-entry">
-        <table class="row-table">
+      <div class="proj-entry">
+        <table class="row-tbl">
           <tr>
-            <td class="col-title">GeoMiner AI</td>
-            <td class="col-meta">AI / Geospatial Resource Predictor — 2026</td>
+            <td class="col-name">GeoMiner AI</td>
+            <td class="col-date">AI / Geospatial Resource Predictor &mdash; 2026</td>
           </tr>
         </table>
-        <div class="project-tech">Tech: Python, Flask, Scikit-learn, GIS, Data Visualization</div>
-        <ul class="project-bullets">
+        <div class="proj-tech">Tech: Python, Flask, Scikit-learn, GIS, Data Visualization</div>
+        <ul class="proj-bullets">
           <li>Designed an ML pipeline to analyze geospatial maps and predict mineral distribution patterns.</li>
           <li>Built an interactive web dashboard to visualize prediction outputs for non-technical users.</li>
         </ul>
       </div>
 
-      <div class="project-entry">
-        <table class="row-table">
+      <div class="proj-entry">
+        <table class="row-tbl">
           <tr>
-            <td class="col-title">AgriGeo AI &nbsp;(GeoSmart-Agri)</td>
-            <td class="col-meta">Precision Agriculture Platform — 2026</td>
+            <td class="col-name">AgriGeo AI &nbsp;(GeoSmart-Agri)</td>
+            <td class="col-date">Precision Agriculture Platform &mdash; 2026</td>
           </tr>
         </table>
-        <div class="project-tech">Tech: HTML5, CSS3, JavaScript, Leaflet GIS, Bootstrap</div>
-        <ul class="project-bullets">
+        <div class="proj-tech">Tech: HTML5, CSS3, JavaScript, Leaflet GIS, Bootstrap</div>
+        <ul class="proj-bullets">
           <li>Developed a precision farming platform using satellite data and geospatial maps to analyze soil health and recommend irrigation strategies.</li>
           <li>Presented at college and regional hackathons, receiving top recognition for innovation in smart farming.</li>
         </ul>
       </div>
 
-      <div class="project-entry">
-        <table class="row-table">
+      <div class="proj-entry">
+        <table class="row-tbl">
           <tr>
-            <td class="col-title">Interactive Code Compiler</td>
-            <td class="col-meta">Web Developer Tool — 2026</td>
+            <td class="col-name">Interactive Code Compiler</td>
+            <td class="col-date">Web Developer Tool &mdash; 2026</td>
           </tr>
         </table>
-        <div class="project-tech">Tech: Java, Spring Boot, HTML5, CSS3, JavaScript, REST APIs</div>
-        <ul class="project-bullets">
+        <div class="proj-tech">Tech: Java, Spring Boot, HTML5, CSS3, JavaScript, REST APIs</div>
+        <ul class="proj-bullets">
           <li>Built a glassmorphic in-browser code compiler supporting Java, Python, and C with real-time output streaming.</li>
           <li>Integrated a secure backend execution environment for safe evaluation of user-submitted code.</li>
         </ul>
       </div>
 
-      <div class="project-entry">
-        <table class="row-table">
+      <div class="proj-entry">
+        <table class="row-tbl">
           <tr>
-            <td class="col-title">FocusLearn</td>
-            <td class="col-meta">EdTech Full-Stack Application — 2026</td>
+            <td class="col-name">FocusLearn</td>
+            <td class="col-date">EdTech Full-Stack Application &mdash; 2026</td>
           </tr>
         </table>
-        <div class="project-tech">Tech: HTML5, CSS3, JavaScript, PHP, MySQL</div>
-        <ul class="project-bullets">
+        <div class="proj-tech">Tech: HTML5, CSS3, JavaScript, PHP, MySQL</div>
+        <ul class="proj-bullets">
           <li>Created a student-productivity platform with daily planners, resource libraries, and visual progress tracking.</li>
           <li>Implemented user authentication, role-based dashboards, and a responsive mobile-first design.</li>
         </ul>
       </div>
     </div>
 
-    <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+    <!-- ═══════════════ CERTIFICATIONS & ACHIEVEMENTS ═══════════════ -->
     <div class="section">
-      <div class="section-title">Certifications &amp; Achievements</div>
-      <table class="two-col-table">
+      <div class="sec-title">Certifications &amp; Achievements</div>
+      <table class="two-tbl">
         <tr>
           <td>
             <h4>Certifications</h4>
